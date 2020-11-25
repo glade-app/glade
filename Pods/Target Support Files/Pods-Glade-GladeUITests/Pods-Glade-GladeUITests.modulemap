@@ -1,0 +1,6 @@
+framework module Pods_Glade_GladeUITests {
+  umbrella header "Pods-Glade-GladeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

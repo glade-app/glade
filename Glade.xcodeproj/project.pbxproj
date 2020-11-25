@@ -1,0 +1,916 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37E9B080BDCD2D571C30B57F /* Pods_Glade_GladeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73872B2E0FDB41BF50DAC8C /* Pods_Glade_GladeUITests.framework */; };
+		939D607D9168A3BC69FE4566 /* Pods_GladeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BA32312CAC47A63B5CD0B9 /* Pods_GladeTests.framework */; };
+		96282211256A6F4B006A9558 /* SocialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */; };
+		96282216256B2679006A9558 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96282215256B2679006A9558 /* Social.swift */; };
+		9635EA812558BE47009C3950 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635EA802558BE47009C3950 /* Token.swift */; };
+		9639207125632BEE00D5FE7E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639207025632BEE00D5FE7E /* HomeViewController.swift */; };
+		9639207A25632CD700D5FE7E /* CellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639207925632CD700D5FE7E /* CellBuilder.swift */; };
+		9639207F25632CED00D5FE7E /* LayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639207E25632CED00D5FE7E /* LayoutBuilder.swift */; };
+		9639208425632DD400D5FE7E /* SongCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639208325632DD400D5FE7E /* SongCollectionViewCell.swift */; };
+		963920A52563492000D5FE7E /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963920A42563491F00D5FE7E /* ArtistCollectionViewCell.swift */; };
+		963920AA256350D500D5FE7E /* HomeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963920A9256350D500D5FE7E /* HomeSectionHeader.swift */; };
+		963920B225635AAE00D5FE7E /* HomeSchoolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963920B125635AAE00D5FE7E /* HomeSchoolCollectionViewCell.swift */; };
+		963DCAFB2535560500224983 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DCAFA2535560500224983 /* Constants.swift */; };
+		963EEA32256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963EEA31256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift */; };
+		9642E1CF254401D200296387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642E1CE254401D200296387 /* User.swift */; };
+		964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */; };
+		967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A8F52256913B200A5CADC /* ProfileViewController.swift */; };
+		967AA0AC256E334000386D67 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AA0AB256E334000386D67 /* SpotifyiOS.framework */; };
+		969995B8255F5BA600F18474 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969995B7255F5BA600F18474 /* DataStorage.swift */; };
+		969BD357253B91BE00205CC4 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD356253B91BE00205CC4 /* DescriptionViewController.swift */; };
+		969BD35C253BA20800205CC4 /* SocialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD35B253BA20800205CC4 /* SocialsViewController.swift */; };
+		96B0355725688D5600F33FAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96B0355625688D5600F33FAB /* GoogleService-Info.plist */; };
+		96C719382559000F00B30BAE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C719372559000F00B30BAE /* Account.swift */; };
+		96CA7FD8253162D700C221DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FD7253162D700C221DE /* AppDelegate.swift */; };
+		96CA7FDA253162D700C221DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FD9253162D700C221DE /* SceneDelegate.swift */; };
+		96CA7FDC253162D700C221DE /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FDB253162D700C221DE /* StartViewController.swift */; };
+		96CA7FDF253162D700C221DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CA7FDD253162D700C221DE /* Main.storyboard */; };
+		96CA7FE1253162D900C221DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CA7FE0253162D900C221DE /* Assets.xcassets */; };
+		96CA7FE4253162D900C221DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CA7FE2253162D900C221DE /* LaunchScreen.storyboard */; };
+		96CA7FEF253162D900C221DE /* test_gladeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FEE253162D900C221DE /* test_gladeTests.swift */; };
+		96CA7FFA253162D900C221DE /* test_gladeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FF9253162D900C221DE /* test_gladeUITests.swift */; };
+		96CA80C22532DD5600C221DE /* SpotifyConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA80C12532DD5600C221DE /* SpotifyConnectViewController.swift */; };
+		96CA80D2253385AE00C221DE /* SchoolScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA80D1253385AE00C221DE /* SchoolScrollViewController.swift */; };
+		96CA80E32533881500C221DE /* SchoolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA80E12533881500C221DE /* SchoolCollectionViewCell.swift */; };
+		96CA80E42533881500C221DE /* SchoolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CA80E22533881500C221DE /* SchoolCollectionViewCell.xib */; };
+		96CE3FDB2569C04200019DDC /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CE3FDA2569C04200019DDC /* Spotify.swift */; };
+		96DB9C2A255C867C00542872 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB9C29255C867C00542872 /* Artist.swift */; };
+		96DB9C2F255C905B00542872 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB9C2E255C905B00542872 /* Song.swift */; };
+		E6711E1B97E29E3EE07D97B3 /* Pods_Glade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5137C6330177CD0E97897954 /* Pods_Glade.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96CA7FEB253162D900C221DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96CA7FCC253162D700C221DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CA7FD3253162D700C221DE;
+			remoteInfo = "test-glade";
+		};
+		96CA7FF6253162D900C221DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96CA7FCC253162D700C221DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CA7FD3253162D700C221DE;
+			remoteInfo = "test-glade";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26BA32312CAC47A63B5CD0B9 /* Pods_GladeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GladeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5137C6330177CD0E97897954 /* Pods_Glade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Glade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C7790D7818CF769ACC6D050 /* Pods-GladeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GladeTests.release.xcconfig"; path = "Target Support Files/Pods-GladeTests/Pods-GladeTests.release.xcconfig"; sourceTree = "<group>"; };
+		739A2C23C7AD30E57669FACB /* Pods-Glade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glade.release.xcconfig"; path = "Target Support Files/Pods-Glade/Pods-Glade.release.xcconfig"; sourceTree = "<group>"; };
+		96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCollectionViewCell.swift; sourceTree = "<group>"; };
+		96282215256B2679006A9558 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		9635EA802558BE47009C3950 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		9639207025632BEE00D5FE7E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9639207925632CD700D5FE7E /* CellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBuilder.swift; sourceTree = "<group>"; };
+		9639207E25632CED00D5FE7E /* LayoutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBuilder.swift; sourceTree = "<group>"; };
+		9639208325632DD400D5FE7E /* SongCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCollectionViewCell.swift; sourceTree = "<group>"; };
+		963920A42563491F00D5FE7E /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		963920A9256350D500D5FE7E /* HomeSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeader.swift; sourceTree = "<group>"; };
+		963920B125635AAE00D5FE7E /* HomeSchoolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSchoolCollectionViewCell.swift; sourceTree = "<group>"; };
+		963DCAFA2535560500224983 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		963EEA31256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainCollectionViewCell.swift; sourceTree = "<group>"; };
+		9642E1CE254401D200296387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		967A8F52256913B200A5CADC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		967AA0AB256E334000386D67 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		968347AC2535493400B2B2E7 /* Glade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glade-Bridging-Header.h"; sourceTree = "<group>"; };
+		969995B7255F5BA600F18474 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		969BD356253B91BE00205CC4 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		969BD35B253BA20800205CC4 /* SocialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsViewController.swift; sourceTree = "<group>"; };
+		96B0355625688D5600F33FAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96C719372559000F00B30BAE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		96CA7FD4253162D700C221DE /* Glade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glade.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CA7FD7253162D700C221DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96CA7FD9253162D700C221DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		96CA7FDB253162D700C221DE /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		96CA7FDE253162D700C221DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96CA7FE0253162D900C221DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96CA7FE3253162D900C221DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96CA7FE5253162D900C221DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96CA7FEA253162D900C221DE /* GladeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GladeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CA7FEE253162D900C221DE /* test_gladeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_gladeTests.swift; sourceTree = "<group>"; };
+		96CA7FF0253162D900C221DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96CA7FF5253162D900C221DE /* GladeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GladeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CA7FF9253162D900C221DE /* test_gladeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_gladeUITests.swift; sourceTree = "<group>"; };
+		96CA7FFB253162D900C221DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96CA80C12532DD5600C221DE /* SpotifyConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnectViewController.swift; sourceTree = "<group>"; };
+		96CA80D1253385AE00C221DE /* SchoolScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolScrollViewController.swift; sourceTree = "<group>"; };
+		96CA80E12533881500C221DE /* SchoolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolCollectionViewCell.swift; sourceTree = "<group>"; };
+		96CA80E22533881500C221DE /* SchoolCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolCollectionViewCell.xib; sourceTree = "<group>"; };
+		96CE3FDA2569C04200019DDC /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
+		96DB9C29255C867C00542872 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		96DB9C2E255C905B00542872 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		974C7BAE0A1289550B119F41 /* Pods-Glade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glade.debug.xcconfig"; path = "Target Support Files/Pods-Glade/Pods-Glade.debug.xcconfig"; sourceTree = "<group>"; };
+		A13E7C09576C8B4013BCE056 /* Pods-Glade-GladeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glade-GladeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Glade-GladeUITests/Pods-Glade-GladeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A73872B2E0FDB41BF50DAC8C /* Pods_Glade_GladeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Glade_GladeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAC11BD008E372D11FE72320 /* Pods-GladeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GladeTests.debug.xcconfig"; path = "Target Support Files/Pods-GladeTests/Pods-GladeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD99E22FE9BA04D874B13427 /* Pods-Glade-GladeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glade-GladeUITests.release.xcconfig"; path = "Target Support Files/Pods-Glade-GladeUITests/Pods-Glade-GladeUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96CA7FD1253162D700C221DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967AA0AC256E334000386D67 /* SpotifyiOS.framework in Frameworks */,
+				E6711E1B97E29E3EE07D97B3 /* Pods_Glade.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CA7FE7253162D900C221DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				939D607D9168A3BC69FE4566 /* Pods_GladeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CA7FF2253162D900C221DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E9B080BDCD2D571C30B57F /* Pods_Glade_GladeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		699398BF129D5740B22BF74F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				974C7BAE0A1289550B119F41 /* Pods-Glade.debug.xcconfig */,
+				739A2C23C7AD30E57669FACB /* Pods-Glade.release.xcconfig */,
+				A13E7C09576C8B4013BCE056 /* Pods-Glade-GladeUITests.debug.xcconfig */,
+				DD99E22FE9BA04D874B13427 /* Pods-Glade-GladeUITests.release.xcconfig */,
+				BAC11BD008E372D11FE72320 /* Pods-GladeTests.debug.xcconfig */,
+				6C7790D7818CF769ACC6D050 /* Pods-GladeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9639207825632CB100D5FE7E /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				9642E1CE254401D200296387 /* User.swift */,
+				96C719372559000F00B30BAE /* Account.swift */,
+				96DB9C29255C867C00542872 /* Artist.swift */,
+				96DB9C2E255C905B00542872 /* Song.swift */,
+				96282215256B2679006A9558 /* Social.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		9642E1C22543FD4400296387 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9635EA802558BE47009C3950 /* Token.swift */,
+				969995B7255F5BA600F18474 /* DataStorage.swift */,
+				9639207925632CD700D5FE7E /* CellBuilder.swift */,
+				9639207E25632CED00D5FE7E /* LayoutBuilder.swift */,
+				96CE3FDA2569C04200019DDC /* Spotify.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		968347B32535498B00B2B2E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				967AA0AB256E334000386D67 /* SpotifyiOS.framework */,
+				5137C6330177CD0E97897954 /* Pods_Glade.framework */,
+				A73872B2E0FDB41BF50DAC8C /* Pods_Glade_GladeUITests.framework */,
+				26BA32312CAC47A63B5CD0B9 /* Pods_GladeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		969BD347253B7FAC00205CC4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				96CA80D1253385AE00C221DE /* SchoolScrollViewController.swift */,
+				96CA80C12532DD5600C221DE /* SpotifyConnectViewController.swift */,
+				969BD356253B91BE00205CC4 /* DescriptionViewController.swift */,
+				96CA7FDB253162D700C221DE /* StartViewController.swift */,
+				969BD35B253BA20800205CC4 /* SocialsViewController.swift */,
+				9639207025632BEE00D5FE7E /* HomeViewController.swift */,
+				967A8F52256913B200A5CADC /* ProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		969BD34C253B802F00205CC4 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				96CA80E12533881500C221DE /* SchoolCollectionViewCell.swift */,
+				96CA80E22533881500C221DE /* SchoolCollectionViewCell.xib */,
+				9639208325632DD400D5FE7E /* SongCollectionViewCell.swift */,
+				963920A42563491F00D5FE7E /* ArtistCollectionViewCell.swift */,
+				963920A9256350D500D5FE7E /* HomeSectionHeader.swift */,
+				963920B125635AAE00D5FE7E /* HomeSchoolCollectionViewCell.swift */,
+				963EEA31256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift */,
+				96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */,
+				964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		96CA7FCB253162D700C221DE = {
+			isa = PBXGroup;
+			children = (
+				96CA7FD6253162D700C221DE /* Glade */,
+				96CA7FED253162D900C221DE /* GladeTests */,
+				96CA7FF8253162D900C221DE /* GladeUITests */,
+				96CA7FD5253162D700C221DE /* Products */,
+				968347B32535498B00B2B2E7 /* Frameworks */,
+				699398BF129D5740B22BF74F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		96CA7FD5253162D700C221DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96CA7FD4253162D700C221DE /* Glade.app */,
+				96CA7FEA253162D900C221DE /* GladeTests.xctest */,
+				96CA7FF5253162D900C221DE /* GladeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96CA7FD6253162D700C221DE /* Glade */ = {
+			isa = PBXGroup;
+			children = (
+				9639207825632CB100D5FE7E /* Structs */,
+				9642E1C22543FD4400296387 /* Classes */,
+				969BD34C253B802F00205CC4 /* Custom Views */,
+				969BD347253B7FAC00205CC4 /* View Controllers */,
+				96CA7FD7253162D700C221DE /* AppDelegate.swift */,
+				96CA7FD9253162D700C221DE /* SceneDelegate.swift */,
+				96CA7FDD253162D700C221DE /* Main.storyboard */,
+				96B0355625688D5600F33FAB /* GoogleService-Info.plist */,
+				96CA7FE0253162D900C221DE /* Assets.xcassets */,
+				96CA7FE2253162D900C221DE /* LaunchScreen.storyboard */,
+				96CA7FE5253162D900C221DE /* Info.plist */,
+				968347AC2535493400B2B2E7 /* Glade-Bridging-Header.h */,
+				963DCAFA2535560500224983 /* Constants.swift */,
+			);
+			path = Glade;
+			sourceTree = "<group>";
+		};
+		96CA7FED253162D900C221DE /* GladeTests */ = {
+			isa = PBXGroup;
+			children = (
+				96CA7FEE253162D900C221DE /* test_gladeTests.swift */,
+				96CA7FF0253162D900C221DE /* Info.plist */,
+			);
+			path = GladeTests;
+			sourceTree = "<group>";
+		};
+		96CA7FF8253162D900C221DE /* GladeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				96CA7FF9253162D900C221DE /* test_gladeUITests.swift */,
+				96CA7FFB253162D900C221DE /* Info.plist */,
+			);
+			path = GladeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96CA7FD3253162D700C221DE /* Glade */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CA7FFE253162D900C221DE /* Build configuration list for PBXNativeTarget "Glade" */;
+			buildPhases = (
+				28C07161EE681C2752D75CE4 /* [CP] Check Pods Manifest.lock */,
+				96CA7FD0253162D700C221DE /* Sources */,
+				96CA7FD1253162D700C221DE /* Frameworks */,
+				96CA7FD2253162D700C221DE /* Resources */,
+				8E87691DE1090BEDC43E3E71 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Glade;
+			productName = "test-glade";
+			productReference = 96CA7FD4253162D700C221DE /* Glade.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96CA7FE9253162D900C221DE /* GladeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CA8001253162D900C221DE /* Build configuration list for PBXNativeTarget "GladeTests" */;
+			buildPhases = (
+				7202F8F3F459F33855352E70 /* [CP] Check Pods Manifest.lock */,
+				96CA7FE6253162D900C221DE /* Sources */,
+				96CA7FE7253162D900C221DE /* Frameworks */,
+				96CA7FE8253162D900C221DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96CA7FEC253162D900C221DE /* PBXTargetDependency */,
+			);
+			name = GladeTests;
+			productName = "test-gladeTests";
+			productReference = 96CA7FEA253162D900C221DE /* GladeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		96CA7FF4253162D900C221DE /* GladeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CA8004253162D900C221DE /* Build configuration list for PBXNativeTarget "GladeUITests" */;
+			buildPhases = (
+				091952290CEF4D28D84EE339 /* [CP] Check Pods Manifest.lock */,
+				96CA7FF1253162D900C221DE /* Sources */,
+				96CA7FF2253162D900C221DE /* Frameworks */,
+				96CA7FF3253162D900C221DE /* Resources */,
+				19D24617B988904FAFA15BE2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96CA7FF7253162D900C221DE /* PBXTargetDependency */,
+			);
+			name = GladeUITests;
+			productName = "test-gladeUITests";
+			productReference = 96CA7FF5253162D900C221DE /* GladeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96CA7FCC253162D700C221DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					96CA7FD3253162D700C221DE = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					96CA7FE9253162D900C221DE = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 96CA7FD3253162D700C221DE;
+					};
+					96CA7FF4253162D900C221DE = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 96CA7FD3253162D700C221DE;
+					};
+				};
+			};
+			buildConfigurationList = 96CA7FCF253162D700C221DE /* Build configuration list for PBXProject "Glade" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96CA7FCB253162D700C221DE;
+			productRefGroup = 96CA7FD5253162D700C221DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96CA7FD3253162D700C221DE /* Glade */,
+				96CA7FE9253162D900C221DE /* GladeTests */,
+				96CA7FF4253162D900C221DE /* GladeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96CA7FD2253162D700C221DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CA7FE4253162D900C221DE /* LaunchScreen.storyboard in Resources */,
+				96CA7FE1253162D900C221DE /* Assets.xcassets in Resources */,
+				96B0355725688D5600F33FAB /* GoogleService-Info.plist in Resources */,
+				96CA80E42533881500C221DE /* SchoolCollectionViewCell.xib in Resources */,
+				96CA7FDF253162D700C221DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CA7FE8253162D900C221DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CA7FF3253162D900C221DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		091952290CEF4D28D84EE339 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Glade-GladeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19D24617B988904FAFA15BE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Glade-GladeUITests/Pods-Glade-GladeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Glade-GladeUITests/Pods-Glade-GladeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Glade-GladeUITests/Pods-Glade-GladeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28C07161EE681C2752D75CE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Glade-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7202F8F3F459F33855352E70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GladeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E87691DE1090BEDC43E3E71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Glade/Pods-Glade-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Glade/Pods-Glade-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Glade/Pods-Glade-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96CA7FD0253162D700C221DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96DB9C2F255C905B00542872 /* Song.swift in Sources */,
+				969BD357253B91BE00205CC4 /* DescriptionViewController.swift in Sources */,
+				96CA7FDC253162D700C221DE /* StartViewController.swift in Sources */,
+				963920B225635AAE00D5FE7E /* HomeSchoolCollectionViewCell.swift in Sources */,
+				96CA80E32533881500C221DE /* SchoolCollectionViewCell.swift in Sources */,
+				964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */,
+				96C719382559000F00B30BAE /* Account.swift in Sources */,
+				96CE3FDB2569C04200019DDC /* Spotify.swift in Sources */,
+				96282211256A6F4B006A9558 /* SocialCollectionViewCell.swift in Sources */,
+				9635EA812558BE47009C3950 /* Token.swift in Sources */,
+				96CA80D2253385AE00C221DE /* SchoolScrollViewController.swift in Sources */,
+				963920AA256350D500D5FE7E /* HomeSectionHeader.swift in Sources */,
+				9642E1CF254401D200296387 /* User.swift in Sources */,
+				963EEA32256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift in Sources */,
+				96CA80C22532DD5600C221DE /* SpotifyConnectViewController.swift in Sources */,
+				9639207125632BEE00D5FE7E /* HomeViewController.swift in Sources */,
+				96CA7FD8253162D700C221DE /* AppDelegate.swift in Sources */,
+				9639207F25632CED00D5FE7E /* LayoutBuilder.swift in Sources */,
+				9639208425632DD400D5FE7E /* SongCollectionViewCell.swift in Sources */,
+				967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */,
+				969BD35C253BA20800205CC4 /* SocialsViewController.swift in Sources */,
+				9639207A25632CD700D5FE7E /* CellBuilder.swift in Sources */,
+				963DCAFB2535560500224983 /* Constants.swift in Sources */,
+				96DB9C2A255C867C00542872 /* Artist.swift in Sources */,
+				963920A52563492000D5FE7E /* ArtistCollectionViewCell.swift in Sources */,
+				969995B8255F5BA600F18474 /* DataStorage.swift in Sources */,
+				96CA7FDA253162D700C221DE /* SceneDelegate.swift in Sources */,
+				96282216256B2679006A9558 /* Social.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CA7FE6253162D900C221DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CA7FEF253162D900C221DE /* test_gladeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CA7FF1253162D900C221DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CA7FFA253162D900C221DE /* test_gladeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96CA7FEC253162D900C221DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CA7FD3253162D700C221DE /* Glade */;
+			targetProxy = 96CA7FEB253162D900C221DE /* PBXContainerItemProxy */;
+		};
+		96CA7FF7253162D900C221DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CA7FD3253162D700C221DE /* Glade */;
+			targetProxy = 96CA7FF6253162D900C221DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		96CA7FDD253162D700C221DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96CA7FDE253162D700C221DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		96CA7FE2253162D900C221DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96CA7FE3253162D900C221DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96CA7FFC253162D900C221DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Glade/Glade-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96CA7FFD253162D900C221DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Glade/Glade-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96CA7FFF253162D900C221DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 974C7BAE0A1289550B119F41 /* Pods-Glade.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VF3QBS95D4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/test-glade",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Glade/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.glade;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Glade/Glade-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96CA8000253162D900C221DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 739A2C23C7AD30E57669FACB /* Pods-Glade.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VF3QBS95D4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/test-glade",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Glade/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.glade;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Glade/Glade-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		96CA8002253162D900C221DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAC11BD008E372D11FE72320 /* Pods-GladeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "test-gladeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Allen-Gu.test-gladeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glade.app/Glade";
+			};
+			name = Debug;
+		};
+		96CA8003253162D900C221DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C7790D7818CF769ACC6D050 /* Pods-GladeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "test-gladeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Allen-Gu.test-gladeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glade.app/Glade";
+			};
+			name = Release;
+		};
+		96CA8005253162D900C221DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A13E7C09576C8B4013BCE056 /* Pods-Glade-GladeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "test-gladeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Allen-Gu.test-gladeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "test-glade";
+			};
+			name = Debug;
+		};
+		96CA8006253162D900C221DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD99E22FE9BA04D874B13427 /* Pods-Glade-GladeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "test-gladeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Allen-Gu.test-gladeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "test-glade";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96CA7FCF253162D700C221DE /* Build configuration list for PBXProject "Glade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CA7FFC253162D900C221DE /* Debug */,
+				96CA7FFD253162D900C221DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CA7FFE253162D900C221DE /* Build configuration list for PBXNativeTarget "Glade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CA7FFF253162D900C221DE /* Debug */,
+				96CA8000253162D900C221DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CA8001253162D900C221DE /* Build configuration list for PBXNativeTarget "GladeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CA8002253162D900C221DE /* Debug */,
+				96CA8003253162D900C221DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CA8004253162D900C221DE /* Build configuration list for PBXNativeTarget "GladeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CA8005253162D900C221DE /* Debug */,
+				96CA8006253162D900C221DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96CA7FCC253162D700C221DE /* Project object */;
+}
