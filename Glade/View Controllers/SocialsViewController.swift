@@ -42,8 +42,6 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
         facebookImage.image = UIImage(named: "facebook")
         instagramImage.image = UIImage(named: "instagram")
         snapchatImage.image = UIImage(named: "snapchat")
-        snapchatImage.backgroundColor = UIColor(red: 255/255, green: 252/255, blue: 0/255, alpha: 1)
-        snapchatImage.layer.cornerRadius = 10
 
         // Vertical stack
         verticalStack.spacing = 20

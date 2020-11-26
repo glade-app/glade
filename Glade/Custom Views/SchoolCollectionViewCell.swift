@@ -22,7 +22,7 @@ class SchoolCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 10
     }
     
     func configureCell(schoolName: String, image: UIImage) {

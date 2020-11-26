@@ -13,11 +13,11 @@ class StartViewController: UIViewController {
     @IBOutlet weak var gladeNameLabel: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
-        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
-//        let signedUp = false // Testing Purposes
+//        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
+        let signedUp = false // Testing Purposes
         
-        performSegue(withIdentifier: "startToMain", sender: self)
-        return
+//        performSegue(withIdentifier: "startToMain", sender: self)
+//        return
         
         // If user is signed up: Refresh their access token, update their data in Firestore, then send to home page
         if signedUp {

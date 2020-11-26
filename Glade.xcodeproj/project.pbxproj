@@ -22,6 +22,7 @@
 		963DCAFB2535560500224983 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DCAFA2535560500224983 /* Constants.swift */; };
 		963EEA32256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963EEA31256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift */; };
 		9642E1CF254401D200296387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642E1CE254401D200296387 /* User.swift */; };
+		96462D6D256FB19400FBD90A /* ArtistsSongsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96462D6C256FB19400FBD90A /* ArtistsSongsSectionHeader.swift */; };
 		964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */; };
 		967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A8F52256913B200A5CADC /* ProfileViewController.swift */; };
 		967AA0AC256E334000386D67 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AA0AB256E334000386D67 /* SpotifyiOS.framework */; };
@@ -83,6 +84,7 @@
 		963DCAFA2535560500224983 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		963EEA31256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainCollectionViewCell.swift; sourceTree = "<group>"; };
 		9642E1CE254401D200296387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		96462D6C256FB19400FBD90A /* ArtistsSongsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsSongsSectionHeader.swift; sourceTree = "<group>"; };
 		964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		967A8F52256913B200A5CADC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		967AA0AB256E334000386D67 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				963EEA31256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift */,
 				96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */,
 				964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */,
+				96462D6C256FB19400FBD90A /* ArtistsSongsSectionHeader.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */,
 				96C719382559000F00B30BAE /* Account.swift in Sources */,
 				96CE3FDB2569C04200019DDC /* Spotify.swift in Sources */,
+				96462D6D256FB19400FBD90A /* ArtistsSongsSectionHeader.swift in Sources */,
 				96282211256A6F4B006A9558 /* SocialCollectionViewCell.swift in Sources */,
 				9635EA812558BE47009C3950 /* Token.swift in Sources */,
 				96CA80D2253385AE00C221DE /* SchoolScrollViewController.swift in Sources */,

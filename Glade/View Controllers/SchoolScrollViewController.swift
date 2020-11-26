@@ -10,11 +10,12 @@ import FirebaseFirestore
 
 class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    let images = ["berkeley.jpg"]
+    let images = ["berkeley2"]
     let imageNames = ["UC Berkeley"]
     var schoolSelected = ""
     
     
+    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     
@@ -35,6 +36,13 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     }
     
     func setupItems() {
+        // Glade
+        gladeNameLabel.text = "Glade"
+        //gladeNameLabel.textColor
+        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
+        gladeNameLabel.textAlignment = .center
+        gladeNameLabel.numberOfLines = 0
+        
         // Choose your school prompt
         chooseLabel.text = "Choose your school:"
         //chooseLabel.textColor

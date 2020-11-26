@@ -9,8 +9,8 @@ import UIKit
 
 class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate, UIGestureRecognizerDelegate {
 
-    @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var gladeNameLabel: UILabel!
+    @IBOutlet weak var spotifyImage: UIImageView!
     @IBOutlet var connectButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
@@ -45,19 +45,18 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     }
     
     func setupItems() {
-        // Vertical Stack
-        verticalStack.spacing = 20
-        
         // Glade
         gladeNameLabel.text = "Glade"
         //gladeNameLabel.textColor
         gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
         gladeNameLabel.textAlignment = .center
         gladeNameLabel.numberOfLines = 0
+
         
         // Connect Button
         connectButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 32)
-        connectButton.setTitleColor(UIColor.systemGreen, for: .normal)
+        connectButton.setTitle("Connect", for: .normal)
+        connectButton.setTitleColor(UIColor.black, for: .normal)
         
         // Error Label
         errorLabel.text = " "
@@ -67,7 +66,7 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
         nextButton.setTitle("Next", for: .normal)
         nextButton.setTitleColor(UIColor.systemGreen, for: .normal)
         nextButton.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        nextButton.titleLabel!.textAlignment = .right
+        nextButton.titleLabel!.textAlignment = .center
     }
 
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {

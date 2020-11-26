@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.register(SongCollectionViewCell.self, forCellWithReuseIdentifier: "song")
         collectionView.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: "artist")
         collectionView.register(HomeSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+        collectionView.register(ArtistsSongsSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "artistssongs")
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -176,7 +177,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
         {
             profileVC.user = user
-            self.present(profileVC, animated: true, completion: nil)
+            self.navigationController!.pushViewController(profileVC, animated: true)
+//            self.present(profileVC, animated: true, completion: nil)
         }
     }
     

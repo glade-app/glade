@@ -36,7 +36,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         verticalStack.spacing = 20
         
         // Description Prompt
-        descriptionPromptLabel.text = "Add a description"
+        descriptionPromptLabel.text = "Describe your music taste..."
         //emailPromptLabel.textColor
         descriptionPromptLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         descriptionPromptLabel.textAlignment = .left

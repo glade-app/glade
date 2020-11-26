@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "instagram-brands.svg",
+      "filename" : "spotify-brands-green.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "instagram-brands-1.svg",
+      "filename" : "spotify-brands-green-1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "instagram-brands-2.svg",
+      "filename" : "spotify-brands-green-2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
