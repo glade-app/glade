@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false
+        return true
     }
     
     func refreshCollectionView() {
@@ -94,7 +94,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setup() {
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profileButtonTapped(sender:)))
         self.view.addSubview(self.backgroundView)
         self.view.addSubview(self.collectionView)
         NSLayoutConstraint.activate([

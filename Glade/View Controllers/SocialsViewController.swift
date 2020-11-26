@@ -34,6 +34,11 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
