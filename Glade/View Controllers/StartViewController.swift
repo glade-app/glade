@@ -13,8 +13,8 @@ class StartViewController: UIViewController {
     @IBOutlet weak var gladeNameLabel: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
-//        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
-        let signedUp = false // Testing Purposes
+        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
+//        let signedUp = false // Testing Purposes
         
 //        performSegue(withIdentifier: "startToMain", sender: self)
 //        return
