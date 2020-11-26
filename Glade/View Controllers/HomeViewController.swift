@@ -10,6 +10,7 @@
 
 import UIKit
 import Kingfisher
+import FontAwesome_swift
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     lazy var backgroundView: UIView = {
@@ -44,6 +45,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         self.getSchoolData()
         self.getCurrentUser() { (result) in
+            self.setupNavbar()
             self.getArtistsData()
             self.getSongsData()
         }
@@ -67,8 +69,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.reloadData()
     }
     
+    func setupNavbar() {
+//        let profileButton = UIButton(type: .system)
+        let currentUserProfilePictureString = self.currentUser?.images?[0].url
+        var currentUserProfilePicture = UIImageView(frame: CGRect(x: 0, y: -2.5, width: 35, height: 35))
+        if currentUserProfilePictureString != nil {
+            let currentUserProfilePictureUrl = URL(string: currentUserProfilePictureString!)
+            currentUserProfilePicture.kf.setImage(with: currentUserProfilePictureUrl)
+        }
+        else {
+            currentUserProfilePicture.image = UIImage.fontAwesomeIcon(name: .user, style: .solid, textColor: UIColor.black, size: CGSize(width: 35, height: 35))
+        }
+        
+        currentUserProfilePicture.contentMode = .scaleAspectFill
+        currentUserProfilePicture.layer.cornerRadius = 35/2
+        currentUserProfilePicture.layer.masksToBounds = true
+        
+        let profileButton = UIButton()
+        profileButton.addSubview(currentUserProfilePicture)
+        profileButton.addTarget(self, action: #selector(profileButtonTapped(sender:)), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+
+    }
+    
     func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profileButtonTapped(sender:)))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profileButtonTapped(sender:)))
         self.view.addSubview(self.backgroundView)
         self.view.addSubview(self.collectionView)
         NSLayoutConstraint.activate([

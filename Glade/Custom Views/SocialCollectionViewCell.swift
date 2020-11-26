@@ -50,7 +50,6 @@ class SocialCollectionViewCell: UICollectionViewCell {
         self.socialImage.layer.cornerRadius = self.socialImage.frame.width / 2
         
         self.socialImageContainer.layer.cornerRadius = self.socialImageContainer.frame.width / 2
-
     }
     
     override init(frame: CGRect) {
@@ -90,6 +89,10 @@ class SocialCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func copyTag() {
+        UIPasteboard.general.string = tagLabel.text
     }
     
     func configure(social: Social) {

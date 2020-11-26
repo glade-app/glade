@@ -11,7 +11,7 @@ import Kingfisher
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     lazy var collectionView: UICollectionView = {
         let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.makeLayout())
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = UIColor.clear
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ProfileMainCollectionViewCell.self, forCellWithReuseIdentifier: "profileMain")
@@ -23,6 +23,38 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    
+    lazy var copiedLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.alpha = 0.0
+        label.backgroundColor = UIColor(red: 179/255, green: 255/255, blue: 199/255, alpha: 1.0)
+        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.text = "Copied!"
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.clipsToBounds = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var copiedLabelTapped: Bool = false
+    
+    func fadeCopiedLabel() {
+        if !self.copiedLabelTapped {
+            self.copiedLabelTapped = true
+            UIView.animate(withDuration: 0.7, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+                            self.copiedLabel.alpha = 1
+                            self.copiedLabel.transform = CGAffineTransform(translationX: 0, y: 80)
+            }, completion: nil)
+            UIView.animate(withDuration: 0.4, delay: 1.5, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+                            self.copiedLabel.alpha = 0.0
+                            self.copiedLabel.transform = CGAffineTransform(translationX: 0, y: -80)
+            }) { _ in
+                self.copiedLabelTapped = false
+            }
+        }
+    }
     
     var user: User?
     var socials: [Social] = []
@@ -37,6 +69,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.loadUserTopSongs()
         self.setup()
         self.refreshCollectionView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.copiedLabel.layer.cornerRadius = self.copiedLabel.frame.height / 2
     }
     
     func loadSocials() {
@@ -79,11 +116,18 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func setup() {
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.copiedLabel)
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
             self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            self.copiedLabel.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 0),
+            self.copiedLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.copiedLabel.heightAnchor.constraint(equalToConstant: 40),
+            self.copiedLabel.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
@@ -164,7 +208,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Did select a cell here, \(indexPath)")
+        if indexPath.section == 1 {
+            let cell = collectionView.cellForItem(at: indexPath) as! SocialCollectionViewCell
+            cell.copyTag()
+            self.fadeCopiedLabel()
+        }
     }
 }
 
