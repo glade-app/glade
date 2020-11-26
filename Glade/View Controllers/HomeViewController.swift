@@ -72,7 +72,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func setupNavbar() {
 //        let profileButton = UIButton(type: .system)
         let currentUserProfilePictureString = self.currentUser?.images?[0].url
-        var currentUserProfilePicture = UIImageView(frame: CGRect(x: 0, y: -2.5, width: 35, height: 35))
+        let currentUserProfilePicture = UIImageView(frame: CGRect(x: 0, y: -2.5, width: 35, height: 35))
         if currentUserProfilePictureString != nil {
             let currentUserProfilePictureUrl = URL(string: currentUserProfilePictureString!)
             currentUserProfilePicture.kf.setImage(with: currentUserProfilePictureUrl)

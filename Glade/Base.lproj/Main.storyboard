@@ -432,11 +432,11 @@
             </objects>
             <point key="canvasLocation" x="8.6956521739130448" y="389.73214285714283"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="n40-nf-lH7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YTq-yx-Uwq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="bXF-YN-dBN"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="bXF-YN-dBN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jiL-8J-fZd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -456,6 +456,7 @@
         <segue reference="kgv-wX-vcR"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
