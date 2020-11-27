@@ -142,7 +142,7 @@ class DataStorage {
                                 if artistDocument.exists {
                                     let artist = try! FirestoreDecoder().decode(Artist.self, from: artistDocument.data()!)
                                     artists.append(artist)
-                                    print("Success querying artist: \(artist.id!)")
+                                    //print("Success querying artist: \(artist.id!)")
                                 }
                                 group.leave()
                             }
@@ -214,68 +214,127 @@ class DataStorage {
         }
     }
     
-    static func removeUserPreviousArtists(completion: @escaping (_ result: Bool) -> ()) {
+    static func removeArtist(artistID: String, completion: @escaping (_ result: Bool) -> ()) {
         let db = Firestore.firestore()
-        
+        let school = UserDefaults.standard.string(forKey: "school")
+        let schoolArtistReference = db.collection("schools").document(school!).collection("artists").document(artistID)
         let username = UserDefaults.standard.string(forKey: "username")
         let userReference = db.collection("users").document(username!)
-        let school = UserDefaults.standard.string(forKey: "school")
+        let batch = db.batch()
+        batch.updateData([
+            "user_count": FieldValue.increment(Int64(-1)), // Decrement by 1
+            "users": FieldValue.arrayRemove([username!])
+        ], forDocument: schoolArtistReference)
+        batch.updateData([
+            "artists": FieldValue.arrayRemove([artistID])
+        ], forDocument: userReference)
         
-        db.runTransaction({ (transaction, errorPointer) -> Any?  in
-            let userDocument: DocumentSnapshot
-            do {
-                try userDocument = transaction.getDocument(userReference)
-            } catch let error as NSError {
-                errorPointer?.pointee = error
-                return nil
-            }
-            
-            guard let previousArtists = userDocument.data()?["artists"] as? [String] else {
-                let error = NSError(domain: "GladeErrorDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to read user's artists at Firestore path: \(userReference.path)"])
-                errorPointer?.pointee = error
-                return nil
-            }
-            
-            for artist in previousArtists {
-                let schoolArtistReference = db.collection("schools").document(school!).collection("artists").document(artist)
-                
-                // Database cleaning here if decrements to 0?
-                transaction.updateData([
-                    "user_count": FieldValue.increment(Int64(-1)), // Decrement by 1
-                    "users": FieldValue.arrayRemove([username!])
-                ], forDocument: schoolArtistReference)
-                transaction.updateData([
-                    "artists": FieldValue.arrayRemove([artist])
-                ], forDocument: userReference)
-            }
-            return nil
-        }) { (object, error) in
+        batch.commit() { (error) in
             if let error = error {
-                print("Remove artists transaction failed", error)
-            } else {
-                print("Remove artists transaction succeeded")
+                print("Error removing artist data - \(artistID)", error)
+            }
+            else {
+                print("Success removing artist data - \(artistID)")
                 completion(true)
             }
         }
     }
     
+//    static func removeUserPreviousArtists(completion: @escaping (_ result: Bool) -> ()) {
+//        let db = Firestore.firestore()
+//
+//        let username = UserDefaults.standard.string(forKey: "username")
+//        let userReference = db.collection("users").document(username!)
+//        let school = UserDefaults.standard.string(forKey: "school")
+//
+//        db.runTransaction({ (transaction, errorPointer) -> Any?  in
+//            let userDocument: DocumentSnapshot
+//            do {
+//                try userDocument = transaction.getDocument(userReference)
+//            } catch let error as NSError {
+//                errorPointer?.pointee = error
+//                return nil
+//            }
+//
+//            guard let previousArtists = userDocument.data()?["artists"] as? [String] else {
+//                let error = NSError(domain: "GladeErrorDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to read user's artists at Firestore path: \(userReference.path)"])
+//                errorPointer?.pointee = error
+//                return nil
+//            }
+//
+//            for artist in previousArtists {
+//                let schoolArtistReference = db.collection("schools").document(school!).collection("artists").document(artist)
+//
+//                // Database cleaning here if decrements to 0?
+//                transaction.updateData([
+//                    "user_count": FieldValue.increment(Int64(-1)), // Decrement by 1
+//                    "users": FieldValue.arrayRemove([username!])
+//                ], forDocument: schoolArtistReference)
+//                transaction.updateData([
+//                    "artists": FieldValue.arrayRemove([artist])
+//                ], forDocument: userReference)
+//            }
+//            return nil
+//        }) { (object, error) in
+//            if let error = error {
+//                print("Remove artists transaction failed", error)
+//            } else {
+//                print("Remove artists transaction succeeded")
+//                completion(true)
+//            }
+//        }
+//    }
+  
     static func storeUserTopArtists(artists: [Artist], completion: @escaping (_ result: Bool) -> ()) {
-        // Remove current artists related to the user
-        removeUserPreviousArtists() { (result) in
-            // Add new top artists related to the user
-            let group = DispatchGroup()
-            for artist in artists {
-                group.enter()
-                self.storeArtist(artist: artist) { (result) in
-                    group.leave()
+        let db = Firestore.firestore()
+        let username = UserDefaults.standard.string(forKey: "username")
+        let userReference = db.collection("users").document(username!)
+        userReference.getDocument() { (document, error) in
+            if let document = document, document.exists {
+                let newArtistIDs: [String] = artists.map { $0.id! }
+                let previousArtistIDs = document.data()?["artists"] as! [String]
+                let artistsToRemove = previousArtistIDs.filter { !newArtistIDs.contains($0) }
+                let artistsToStore = artists.filter { !previousArtistIDs.contains($0.id!) }
+                print("Artists - Remove: \(artistsToRemove), Store: \(artistsToStore)")
+
+                let group = DispatchGroup()
+                for artistID in artistsToRemove {
+                    group.enter()
+                    removeArtist(artistID: artistID) { (result) in
+                        group.leave()
+                    }
                 }
-            }
-            
-            group.notify(queue: .main) {
-                completion(true)
+                for artist in artistsToStore {
+                    group.enter()
+                    storeArtist(artist: artist) { (result) in
+                        group.leave()
+                    }
+                }
+                group.notify(queue: .main) {
+                    print("Finished storing artists to Firestore")
+                    completion(true)
+                }
             }
         }
     }
+    
+//    static func storeUserTopArtists(artists: [Artist], completion: @escaping (_ result: Bool) -> ()) {
+//        // Remove current artists related to the user
+//        removeUserPreviousArtists() { (result) in
+//            // Add new top artists related to the user
+//            let group = DispatchGroup()
+//            for artist in artists {
+//                group.enter()
+//                self.storeArtist(artist: artist) { (result) in
+//                    group.leave()
+//                }
+//            }
+//
+//            group.notify(queue: .main) {
+//                completion(true)
+//            }
+//        }
+//    }
     
     /// Song Data
     static func getUserTopSongs(count: Int, user: User, completion: @escaping (_ result: Bool, _ songs: [Song]) -> ()) {
@@ -304,7 +363,7 @@ class DataStorage {
                                 if songDocument.exists {
                                     let song = try! FirestoreDecoder().decode(Song.self, from: songDocument.data()!)
                                     songs.append(song)
-                                    print("Success querying artist: \(song.id!)")
+                                    //print("Success querying song: \(song.id!)")
                                 }
                                 group.leave()
                             }
@@ -377,68 +436,126 @@ class DataStorage {
         }
     }
     
-    static func removeUserPreviousSongs(completion: @escaping (_ result: Bool) -> ()) {
+    static func removeSong(songID: String, completion: @escaping (_ result: Bool) -> ()) {
         let db = Firestore.firestore()
-        
+        let school = UserDefaults.standard.string(forKey: "school")
+        let schoolSongReference = db.collection("schools").document(school!).collection("songs").document(songID)
         let username = UserDefaults.standard.string(forKey: "username")
         let userReference = db.collection("users").document(username!)
-        let school = UserDefaults.standard.string(forKey: "school")
+        let batch = db.batch()
+        batch.updateData([
+            "user_count": FieldValue.increment(Int64(-1)), // Decrement by 1
+            "users": FieldValue.arrayRemove([username!])
+        ], forDocument: schoolSongReference)
+        batch.updateData([
+            "songs": FieldValue.arrayRemove([songID])
+        ], forDocument: userReference)
         
-        db.runTransaction({ (transaction, errorPointer) -> Any?  in
-            let userDocument: DocumentSnapshot
-            do {
-                try userDocument = transaction.getDocument(userReference)
-            } catch let error as NSError {
-                errorPointer?.pointee = error
-                return nil
-            }
-            
-            guard let previousSongs = userDocument.data()?["songs"] as? [String] else {
-                let error = NSError(domain: "GladeErrorDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to read user's songs at Firestore path: \(userReference.path)"])
-                errorPointer?.pointee = error
-                return nil
-            }
-            
-            for song in previousSongs {
-                let schoolSongReference = db.collection("schools").document(school!).collection("songs").document(song)
-                
-                // Database cleaning here if decrements to 0?
-                transaction.updateData([
-                    "user_count": FieldValue.increment(Int64(-1)), // Decrement by 1
-                    "users": FieldValue.arrayRemove([username!])
-                ], forDocument: schoolSongReference)
-                transaction.updateData([
-                    "songs": FieldValue.arrayRemove([song])
-                ], forDocument: userReference)
-            }
-            return nil
-        }) { (object, error) in
+        batch.commit() { (error) in
             if let error = error {
-                print("Remove songs transaction failed", error)
-                return
-            } else {
-                print("Remove songs transaction succeeded")
+                print("Error removing song data - \(songID)", error)
+            }
+            else {
+                print("Success removing song data - \(songID)")
                 completion(true)
             }
         }
     }
     
+//    static func removeUserPreviousSongs(completion: @escaping (_ result: Bool) -> ()) {
+//        let db = Firestore.firestore()
+//
+//        let username = UserDefaults.standard.string(forKey: "username")
+//        let userReference = db.collection("users").document(username!)
+//        let school = UserDefaults.standard.string(forKey: "school")
+//
+//        db.runTransaction({ (transaction, errorPointer) -> Any?  in
+//            let userDocument: DocumentSnapshot
+//            do {
+//                try userDocument = transaction.getDocument(userReference)
+//            } catch let error as NSError {
+//                errorPointer?.pointee = error
+//                return nil
+//            }
+//
+//            guard let previousSongs = userDocument.data()?["songs"] as? [String] else {
+//                let error = NSError(domain: "GladeErrorDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to read user's songs at Firestore path: \(userReference.path)"])
+//                errorPointer?.pointee = error
+//                return nil
+//            }
+//
+//            for song in previousSongs {
+//                let schoolSongReference = db.collection("schools").document(school!).collection("songs").document(song)
+//
+//                // Database cleaning here if decrements to 0?
+//                transaction.updateData([
+//                    "user_count": FieldValue.increment(Int64(-1)), // Decrement by 1
+//                    "users": FieldValue.arrayRemove([username!])
+//                ], forDocument: schoolSongReference)
+//                transaction.updateData([
+//                    "songs": FieldValue.arrayRemove([song])
+//                ], forDocument: userReference)
+//            }
+//            return nil
+//        }) { (object, error) in
+//            if let error = error {
+//                print("Remove songs transaction failed", error)
+//                return
+//            } else {
+//                print("Remove songs transaction succeeded")
+//                completion(true)
+//            }
+//        }
+//    }
+    
     static func storeUserTopSongs(songs: [Song], completion: @escaping (_ result: Bool) -> ()) {
-        // Remove current songs related to the user
-        removeUserPreviousSongs() { (result) in
-            // Add new top songs related to the user
-            let group = DispatchGroup()
-            for song in songs {
-                group.enter()
-                self.storeSong(song: song) { (result) in
-                    group.leave()
+        let db = Firestore.firestore()
+        let username = UserDefaults.standard.string(forKey: "username")
+        let userReference = db.collection("users").document(username!)
+        userReference.getDocument() { (document, error) in
+            if let document = document, document.exists {
+                let newSongIDs: [String] = songs.map { $0.id! }
+                let previousSongIDs = document.data()?["songs"] as! [String]
+                let songsToRemove = previousSongIDs.filter { !newSongIDs.contains($0) }
+                let songsToStore = songs.filter { !previousSongIDs.contains($0.id!) }
+                print("Songs - Remove: \(songsToRemove), Store: \(songsToStore)")
+                let group = DispatchGroup()
+                for songID in songsToRemove {
+                    group.enter()
+                    removeSong(songID: songID) { (result) in
+                        group.leave()
+                    }
                 }
-            }
-            group.notify(queue: .main) {
-                completion(true)
+                for song in songsToStore {
+                    group.enter()
+                    storeSong(song: song) { (result) in
+                        group.leave()
+                    }
+                }
+                group.notify(queue: .main) {
+                    print("Finished storing songs to Firestore")
+                    completion(true)
+                }
             }
         }
     }
+    
+//    static func storeUserTopSongs(songs: [Song], completion: @escaping (_ result: Bool) -> ()) {
+//        // Remove current songs related to the user
+//        removeUserPreviousSongs() { (result) in
+//            // Add new top songs related to the user
+//            let group = DispatchGroup()
+//            for song in songs {
+//                group.enter()
+//                self.storeSong(song: song) { (result) in
+//                    group.leave()
+//                }
+//            }
+//            group.notify(queue: .main) {
+//                completion(true)
+//            }
+//        }
+//    }
     
     /// School Data
     static func getSchoolUsersData(completion: @escaping (_ result: Bool, _ data: Dictionary<String, Any>) -> ()) {
@@ -487,7 +604,7 @@ class DataStorage {
                                 var artist = try! FirestoreDecoder().decode(Artist.self, from: artistDocument.data()!)
                                 artist.users = users
                                 artists[i] = artist
-                                print("Success querying artist: \(artist.id!)")
+                                //print("Success querying artist: \(artist.id!)")
                             }
                             group.leave()
                         }
@@ -530,7 +647,7 @@ class DataStorage {
                                 var song = try! FirestoreDecoder().decode(Song.self, from: document.data()!)
                                 song.users = users
                                 songs[i] = song
-                                print("Success querying song: \(song.id!)")
+                                //print("Success querying song: \(song.id!)")
                             }
                             group.leave()
                         }

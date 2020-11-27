@@ -63,7 +63,6 @@ class StartViewController: UIViewController {
             queue.async(group: group) {
                 Spotify.getUserTopSongs(accessToken: self.accessToken!) { (result, songs) in
                     DataStorage.storeUserTopSongs(songs: songs) { (result) in
-                        print("Finished storing top songs")
                         group.leave()
                     }
                 }
