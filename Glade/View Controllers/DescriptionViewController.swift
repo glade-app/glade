@@ -9,6 +9,8 @@ import UIKit
 
 class DescriptionViewController: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var descriptionPromptLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -20,6 +22,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         super.viewDidLoad()
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,6 +35,13 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
     }
     
     func setupItems() {
+        // Glade
+        gladeNameLabel.text = "Glade"
+        //gladeNameLabel.textColor
+        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
+        gladeNameLabel.textAlignment = .center
+        gladeNameLabel.numberOfLines = 0
+        
         // Vertical Stack
         verticalStack.spacing = 20
         
@@ -52,6 +62,14 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         nextButton.setTitleColor(UIColor.systemGreen, for: .normal)
         nextButton.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         nextButton.titleLabel!.textAlignment = .right
+    }
+    
+    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = backgroundView.bounds
+        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
+        gradientLayer.shouldRasterize = true
+        backgroundView.layer.addSublayer(gradientLayer)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {

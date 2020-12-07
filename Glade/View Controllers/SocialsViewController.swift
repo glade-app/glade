@@ -8,6 +8,8 @@
 import UIKit
 
 class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var socialsPromptLabel: UILabel!
     @IBOutlet weak var facebookStack: UIStackView!
@@ -27,6 +29,7 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
         super.viewDidLoad()
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +47,13 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
     }
     
     func setupItems() {
+        // Glade
+        gladeNameLabel.text = "Glade"
+        //gladeNameLabel.textColor
+        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
+        gladeNameLabel.textAlignment = .center
+        gladeNameLabel.numberOfLines = 0
+        
         facebookImage.image = UIImage(named: "facebook")
         instagramImage.image = UIImage(named: "instagram")
         snapchatImage.image = UIImage(named: "snapchat")
@@ -75,6 +85,14 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
         nextButton.setTitleColor(UIColor.systemGreen, for: .normal)
         nextButton.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         nextButton.titleLabel!.textAlignment = .right
+    }
+    
+    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = backgroundView.bounds
+        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
+        gradientLayer.shouldRasterize = true
+        backgroundView.layer.addSublayer(gradientLayer)
     }
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

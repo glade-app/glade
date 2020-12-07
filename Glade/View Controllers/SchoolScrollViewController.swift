@@ -10,11 +10,12 @@ import FirebaseFirestore
 
 class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    let images = ["berkeley2"]
-    let imageNames = ["UC Berkeley"]
+    let images = ["berkeley2", "stanford", "harvard"]
+    let imageNames = ["UC Berkeley", "Stanford", "Harvard"]
     var schoolSelected = ""
     
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
@@ -24,6 +25,7 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
         self.registerNib()
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,11 +51,22 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
         chooseLabel.font = UIFont.boldSystemFont(ofSize: 32)
         chooseLabel.textAlignment = .left
         chooseLabel.numberOfLines = 0
+        
+        // Collection View
+        schoolCollectionView.backgroundColor = .clear
     }
     
     func registerNib() {
         let nib = UINib(nibName: SchoolCollectionViewCell.nibName, bundle: nil)
         schoolCollectionView?.register(nib, forCellWithReuseIdentifier: SchoolCollectionViewCell.reuseIdentifier)
+    }
+    
+    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = backgroundView.bounds
+        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
+        gradientLayer.shouldRasterize = true
+        backgroundView.layer.addSublayer(gradientLayer)
     }
     
     // Returns number of rows (1)
@@ -87,7 +100,7 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     
     // Sets cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionCellWidth: CGFloat = collectionView.bounds.size.width * 3/4
+        let collectionCellWidth: CGFloat = collectionView.bounds.size.width * 2/3
         let collectionCellHeight: CGFloat = collectionView.bounds.size.height
         return CGSize(width: collectionCellWidth, height: collectionCellHeight)
     }

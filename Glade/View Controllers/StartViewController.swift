@@ -9,14 +9,15 @@ import UIKit
 
 class StartViewController: UIViewController {
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var gladeNameLabel: UILabel!
     
     var accessToken: String?
     
     override func viewDidAppear(_ animated: Bool) {
-        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
-//        let signedUp = false // Testing Purposes
+//        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
+        let signedUp = false // Testing Purposes
         
 //        performSegue(withIdentifier: "startToMain", sender: self)
 //        return
@@ -84,6 +85,7 @@ class StartViewController: UIViewController {
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.overrideUserInterfaceStyle = .light
+        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
 
     }
     
@@ -98,5 +100,13 @@ class StartViewController: UIViewController {
         gladeNameLabel.textAlignment = .center
         gladeNameLabel.numberOfLines = 0
         
+    }
+    
+    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = backgroundView.bounds
+        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
+        gradientLayer.shouldRasterize = true
+        backgroundView.layer.addSublayer(gradientLayer)
     }
 }
