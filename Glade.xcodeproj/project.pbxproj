@@ -24,6 +24,7 @@
 		9642E1CF254401D200296387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9642E1CE254401D200296387 /* User.swift */; };
 		96462D6D256FB19400FBD90A /* ArtistsSongsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96462D6C256FB19400FBD90A /* ArtistsSongsSectionHeader.swift */; };
 		964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */; };
+		9668CA442593E0BC002F4C10 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668CA432593E0BC002F4C10 /* EditProfileViewController.swift */; };
 		967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A8F52256913B200A5CADC /* ProfileViewController.swift */; };
 		967AA0AC256E334000386D67 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AA0AB256E334000386D67 /* SpotifyiOS.framework */; };
 		969995B8255F5BA600F18474 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969995B7255F5BA600F18474 /* DataStorage.swift */; };
@@ -86,6 +87,7 @@
 		9642E1CE254401D200296387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96462D6C256FB19400FBD90A /* ArtistsSongsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsSongsSectionHeader.swift; sourceTree = "<group>"; };
 		964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		9668CA432593E0BC002F4C10 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		967A8F52256913B200A5CADC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		967AA0AB256E334000386D67 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		968347AC2535493400B2B2E7 /* Glade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glade-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				969BD35B253BA20800205CC4 /* SocialsViewController.swift */,
 				9639207025632BEE00D5FE7E /* HomeViewController.swift */,
 				967A8F52256913B200A5CADC /* ProfileViewController.swift */,
+				9668CA432593E0BC002F4C10 /* EditProfileViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */,
 				96C719382559000F00B30BAE /* Account.swift in Sources */,
 				96CE3FDB2569C04200019DDC /* Spotify.swift in Sources */,
+				9668CA442593E0BC002F4C10 /* EditProfileViewController.swift in Sources */,
 				96462D6D256FB19400FBD90A /* ArtistsSongsSectionHeader.swift in Sources */,
 				96282211256A6F4B006A9558 /* SocialCollectionViewCell.swift in Sources */,
 				9635EA812558BE47009C3950 /* Token.swift in Sources */,

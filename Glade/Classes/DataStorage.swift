@@ -99,18 +99,17 @@ class DataStorage {
         }
     }
 
-    static func updateUserFieldValue(field: String, value: Any) {
-        let username = UserDefaults.standard.string(forKey: "username")
+    static func updateUserFields(username: String, fields: Dictionary<String, Any>, completion: @escaping (_ result: Bool) -> ()) {
         let db = Firestore.firestore()
-        let userReference = db.collection("users").document(username!)
+        let userReference = db.collection("users").document(username)
         
-        userReference.updateData([
-            field: value
-        ]) { error in
+        userReference.updateData(fields) { error in
             if let error = error {
-                print("Failed to write \(field) to user's database", error)
+                print("Failed to write \(fields.keys) to user's database", error)
+                completion(false)
             } else {
-                print("Successfully wrote \(field) to user's database")
+                print("Successfully wrote \(fields.keys) to user's database")
+                completion(true)
             }
         }
     }

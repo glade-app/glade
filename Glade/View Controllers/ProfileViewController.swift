@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import FontAwesome_swift
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     lazy var collectionView: UICollectionView = {
@@ -64,11 +65,15 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setup()
+        self.refreshCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.loadSocials()
         self.loadUserTopArtists()
         self.loadUserTopSongs()
-        self.setup()
-        self.refreshCollectionView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,11 +81,60 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.copiedLabel.layer.cornerRadius = self.copiedLabel.frame.height / 2
     }
     
+    func setup() {
+        self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.copiedLabel)
+        NSLayoutConstraint.activate([
+            self.collectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
+            self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            self.copiedLabel.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 0),
+            self.copiedLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.copiedLabel.heightAnchor.constraint(equalToConstant: 40),
+            self.copiedLabel.widthAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        self.setupNavbar()
+    }
+    
+    func setupNavbar() {
+        let thisUser = UserDefaults.standard.string(forKey: "username")
+        if self.user!.id == thisUser {
+            let editButtonImage = UIImageView(frame: CGRect(x: 0, y: -2.5, width: 30, height: 30))
+            editButtonImage.image = UIImage.fontAwesomeIcon(name: .pen, style: .solid, textColor: UIColor.black, size: CGSize(width: 30, height: 30))
+            editButtonImage.contentMode = .scaleAspectFill
+            
+            let editButton = UIButton()
+            editButton.addSubview(editButtonImage)
+            editButton.addTarget(self, action: #selector(editButtonTapped(sender:)), for: .touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: editButton)
+        }
+    }
+    
+    @objc func editButtonTapped(sender: UIBarButtonItem) {
+        print("Edit button tapped")
+        self.displayEdit()
+    }
+    
+    func displayEdit() {
+        if let editVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController
+        {
+            editVC.user = self.user!
+            editVC.profileVC = self
+            self.navigationController!.pushViewController(editVC, animated: true)
+//            self.present(profileVC, animated: true, completion: nil)
+        }
+    }
+    
     func loadSocials() {
+        self.socials = []
         if user!.socials == nil {
             return
         }
-        let socialNames = ["facebook", "instagram", "snapchat"]
+        let socialNames = ["facebook", "snapchat", "instagram"]
         for name in socialNames {
             let tag = user!.socials![name]
             if tag != "" {
@@ -112,27 +166,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.setNeedsLayout()
         collectionView.layoutIfNeeded()
         collectionView.reloadData()
-    }
-    
-    func setup() {
-        self.view.addSubview(self.collectionView)
-        self.view.addSubview(self.copiedLabel)
-        NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
-            self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            self.copiedLabel.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 0),
-            self.copiedLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.copiedLabel.heightAnchor.constraint(equalToConstant: 40),
-            self.copiedLabel.widthAnchor.constraint(equalToConstant: 100)
-        ])
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     func makeLayout() -> UICollectionViewLayout {

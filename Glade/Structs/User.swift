@@ -12,12 +12,12 @@ public struct ProfileImage: Codable {
 }
 
 public struct User: Codable {
-    let displayName: String?
-    let email: String?
-    let href: String?
-    let id: String?
-    let images: [ProfileImage]?
-    let uri: String?
+    var displayName: String?
+    var email: String?
+    var href: String?
+    var id: String?
+    var images: [ProfileImage]?
+    var uri: String?
     var songs: [String]?
     var artists: [String]?
     var school: String?

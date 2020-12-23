@@ -43,13 +43,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.getSchoolData()
-        self.getCurrentUser() { (result) in
-            self.setupNavbar()
-            self.getArtistsData()
-            self.getSongsData()
-        }
         self.setup()
         self.refreshCollectionView()
     }
@@ -57,6 +50,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.users = []
+        self.getSchoolData()
+        self.getCurrentUser() { (result) in
+            self.setupNavbar()
+            self.getArtistsData()
+            self.getSongsData()
+        }
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -90,7 +90,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         profileButton.addSubview(currentUserProfilePicture)
         profileButton.addTarget(self, action: #selector(profileButtonTapped(sender:)), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
-
     }
     
     func setup() {
@@ -118,6 +117,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @objc func profileButtonTapped(sender: UIBarButtonItem) {
         print("Profile button tapped")
         self.displayProfile(user: self.currentUser!)
+    }
+    
+    func displayProfile(user: User) {
+        if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        {
+            profileVC.user = user
+            self.navigationController!.pushViewController(profileVC, animated: true)
+//            self.present(profileVC, animated: true, completion: nil)
+        }
     }
     
     func getCurrentUser(completion: @escaping (_ result: Bool) -> ()) {
@@ -169,15 +177,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             DispatchQueue.main.async {
                 self.refreshCollectionView()
             }
-        }
-    }
-    
-    func displayProfile(user: User) {
-        if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        {
-            profileVC.user = user
-            self.navigationController!.pushViewController(profileVC, animated: true)
-//            self.present(profileVC, animated: true, completion: nil)
         }
     }
     

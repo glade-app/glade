@@ -107,10 +107,13 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
     }
     
     @IBAction func signupButtonTapped(_ sender: Any) {
-        DataStorage.updateUserFieldValue(field: "socials", value: [
-                                        "snapchat": snapchatField.text,
-                                        "facebook": facebookField.text,
-                                        "instagram": instagramField.text])
+        let username = UserDefaults.standard.string(forKey: "username")
+        DataStorage.updateUserFields(username: username!,
+            fields: ["socials": ["snapchat": snapchatField.text,
+                                 "facebook": facebookField.text,
+                                 "instagram": instagramField.text]]) { (result) in
+            return
+        }
         let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: "signedUp")
         performSegue(withIdentifier: "signupToMain", sender: self)

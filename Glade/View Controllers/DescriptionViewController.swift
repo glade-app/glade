@@ -73,7 +73,11 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        DataStorage.updateUserFieldValue(field: "description", value: textView.text!)
+        let username = UserDefaults.standard.string(forKey: "username")
+        DataStorage.updateUserFields(username: username!,
+                                     fields: [description: textView.text!]) { (result) in
+            return
+        }
         performSegue(withIdentifier: "toConnectSocials", sender: self)
     }
     
