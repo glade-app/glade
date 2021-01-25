@@ -31,6 +31,8 @@
 		969BD357253B91BE00205CC4 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD356253B91BE00205CC4 /* DescriptionViewController.swift */; };
 		969BD35C253BA20800205CC4 /* SocialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD35B253BA20800205CC4 /* SocialsViewController.swift */; };
 		96B0355725688D5600F33FAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96B0355625688D5600F33FAB /* GoogleService-Info.plist */; };
+		96B448BA25BE1D6C008569A2 /* LoginSequenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B448B925BE1D6C008569A2 /* LoginSequenceButton.swift */; };
+		96B448BF25BE2D63008569A2 /* LoginSequenceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B448BE25BE2D63008569A2 /* LoginSequenceTextField.swift */; };
 		96C719382559000F00B30BAE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C719372559000F00B30BAE /* Account.swift */; };
 		96CA7FD8253162D700C221DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FD7253162D700C221DE /* AppDelegate.swift */; };
 		96CA7FDA253162D700C221DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA7FD9253162D700C221DE /* SceneDelegate.swift */; };
@@ -95,6 +97,8 @@
 		969BD356253B91BE00205CC4 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		969BD35B253BA20800205CC4 /* SocialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsViewController.swift; sourceTree = "<group>"; };
 		96B0355625688D5600F33FAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96B448B925BE1D6C008569A2 /* LoginSequenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSequenceButton.swift; sourceTree = "<group>"; };
+		96B448BE25BE2D63008569A2 /* LoginSequenceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSequenceTextField.swift; sourceTree = "<group>"; };
 		96C719372559000F00B30BAE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		96CA7FD4253162D700C221DE /* Glade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CA7FD7253162D700C221DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 				96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */,
 				964F09B7256C666800A51D6B /* UserCollectionViewCell.swift */,
 				96462D6C256FB19400FBD90A /* ArtistsSongsSectionHeader.swift */,
+				96B448B925BE1D6C008569A2 /* LoginSequenceButton.swift */,
+				96B448BE25BE2D63008569A2 /* LoginSequenceTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				963EEA32256A1C86001D6B60 /* ProfileMainCollectionViewCell.swift in Sources */,
 				96CA80C22532DD5600C221DE /* SpotifyConnectViewController.swift in Sources */,
 				9639207125632BEE00D5FE7E /* HomeViewController.swift in Sources */,
+				96B448BF25BE2D63008569A2 /* LoginSequenceTextField.swift in Sources */,
 				96CA7FD8253162D700C221DE /* AppDelegate.swift in Sources */,
 				9639207F25632CED00D5FE7E /* LayoutBuilder.swift in Sources */,
 				9639208425632DD400D5FE7E /* SongCollectionViewCell.swift in Sources */,
@@ -562,6 +569,7 @@
 				963920A52563492000D5FE7E /* ArtistCollectionViewCell.swift in Sources */,
 				969995B8255F5BA600F18474 /* DataStorage.swift in Sources */,
 				96CA7FDA253162D700C221DE /* SceneDelegate.swift in Sources */,
+				96B448BA25BE1D6C008569A2 /* LoginSequenceButton.swift in Sources */,
 				96282216256B2679006A9558 /* Social.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

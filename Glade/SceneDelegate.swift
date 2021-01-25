@@ -10,14 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    lazy var spotifyConnectVC = SpotifyConnectViewController()
-
+    static var spotifyConnectVC: SpotifyConnectViewController? // Stores the SpotifyConnectViewController that should be returned to after initiation. Might be a bad method to accomplish this?
+    
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         print("Opened url")
         guard let url = URLContexts.first?.url else {
            return
         }
-        spotifyConnectVC.sessionManager.application(UIApplication.shared, open: url, options: [:])
+        if SceneDelegate.spotifyConnectVC != nil {
+            SceneDelegate.spotifyConnectVC!.sessionManager.application(UIApplication.shared, open: url, options: [:])
+        }
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

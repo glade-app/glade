@@ -7,7 +7,7 @@
 
 public struct ProfileImage: Codable {
     let height: Int?
-    let url: String?
+    var url: String?
     let width: Int?
 }
 

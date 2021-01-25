@@ -16,11 +16,8 @@ class StartViewController: UIViewController {
     var accessToken: String?
     
     override func viewDidAppear(_ animated: Bool) {
-        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
-//        let signedUp = false // Testing Purposes
-        
-//        performSegue(withIdentifier: "startToMain", sender: self)
-//        return
+//        let signedUp = UserDefaults.standard.bool(forKey: "signedUp")
+        let signedUp = false // Testing Purposes
         
         // If user is signed up: Refresh their access token, update their data in Firestore, then send to home page
         if signedUp {
@@ -76,8 +73,7 @@ class StartViewController: UIViewController {
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.overrideUserInterfaceStyle = .light
-        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
-
+        self.setGradientBackground(bottomColor: UIColor(red: 14/255, green: 83/255, blue: 187/255, alpha: 1), topColor: UIColor(red: 0/255, green: 255/255, blue: 178/255, alpha: 1))
     }
     
     func setupItems() {
@@ -86,7 +82,7 @@ class StartViewController: UIViewController {
         
         // Glade
         gladeNameLabel.text = "Glade"
-        //gladeNameLabel.textColor
+        gladeNameLabel.textColor = .white
         gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
         gladeNameLabel.textAlignment = .center
         gladeNameLabel.numberOfLines = 0
@@ -97,6 +93,8 @@ class StartViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = backgroundView.bounds
         gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0);
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1);
         gradientLayer.shouldRasterize = true
         backgroundView.layer.addSublayer(gradientLayer)
     }

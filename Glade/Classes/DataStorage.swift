@@ -98,6 +98,22 @@ class DataStorage {
             }
         }
     }
+    
+    static func updateUser(user: User, completion: @escaping (_ result: Bool) -> ()) {
+        let db = Firestore.firestore()
+        let userReference = db.collection("users").document(user.id!)
+        let userData = try! FirestoreEncoder().encode(user)
+        userReference.updateData(userData) { (error) in
+            if let error = error {
+                print("Error updating user info, \(error)")
+                completion(false)
+            }
+            else {
+                print("Successfully updated user info")
+                completion(true)
+            }
+        }
+    }
 
     static func updateUserFields(username: String, fields: Dictionary<String, Any>, completion: @escaping (_ result: Bool) -> ()) {
         let db = Firestore.firestore()
@@ -111,6 +127,46 @@ class DataStorage {
                 print("Successfully wrote \(fields.keys) to user's database")
                 completion(true)
             }
+        }
+    }
+    
+    static func storeUserImage(image: UIImage, completion: @escaping (_ url: URL?) -> ()) {
+        guard let username = UserDefaults.standard.string(forKey: "username") else {
+            completion(nil)
+            return
+        }
+        guard let imageData: Data = image.jpegData(compressionQuality: 0.75) else {
+            print("Image could not be converted to data")
+            completion(nil)
+            return
+        }
+        
+        let storage = Storage.storage()
+        let imageRef = storage.reference().child("users/images/\(username).jpg")
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let uploadTask = imageRef.putData(imageData, metadata: metadata) { (metadata, error) in
+            if let error = error {
+                print("Error putting data to Firebase Storage, \(error)")
+                completion(nil)
+            }
+        }
+        
+        uploadTask.observe(.success) { (snapshot) in
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    print("Error getting image URL")
+                    completion(nil)
+                    return
+                }
+                completion(downloadURL)
+            }
+        }
+        
+        uploadTask.observe(.failure) { (snapshot) in
+            print("Failed to upload image to Firebase Storage")
         }
     }
     

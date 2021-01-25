@@ -99,5 +99,9 @@
 			<dict/>
 		</dict>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>Glade wants to use your phone’s camera.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Glade wants to use your photos.</string>
 </dict>
 </plist>

@@ -30,8 +30,8 @@
             filePath = "Glade/Classes/DataStorage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "561"
-            endingLineNumber = "561"
+            startingLineNumber = "617"
+            endingLineNumber = "617"
             landmarkName = "getSchoolUsersData(completion:)"
             landmarkType = "7">
          </BreakpointContent>

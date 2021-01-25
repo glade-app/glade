@@ -8,6 +8,7 @@ target 'Glade' do
   # Pods for Glade
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'CodableFirebase'
   pod 'FontAwesome.swift'
   pod 'Alamofire', '~> 5.2'

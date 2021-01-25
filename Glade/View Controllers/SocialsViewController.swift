@@ -14,14 +14,14 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
     @IBOutlet weak var socialsPromptLabel: UILabel!
     @IBOutlet weak var facebookStack: UIStackView!
     @IBOutlet weak var facebookImage: UIImageView!
-    @IBOutlet weak var facebookField: UITextField!
+    @IBOutlet weak var facebookField: LoginSequenceTextField!
     @IBOutlet weak var instagramStack: UIStackView!
     @IBOutlet weak var instagramImage: UIImageView!
-    @IBOutlet weak var instagramField: UITextField!
+    @IBOutlet weak var instagramField: LoginSequenceTextField!
     @IBOutlet weak var snapchatStack: UIStackView!
     @IBOutlet weak var snapchatImage: UIImageView!
-    @IBOutlet weak var snapchatField: UITextField!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var snapchatField: LoginSequenceTextField!
+    @IBOutlet weak var nextButton: LoginSequenceButton!
     
     var userData: [String: String] = [:]
     
@@ -60,6 +60,9 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
 
         // Vertical stack
         verticalStack.spacing = 20
+        verticalStack.alignment = .center
+        verticalStack.distribution = .fill
+        
         
         // Socials prompt
         socialsPromptLabel.text = "Connect your socials:"
@@ -81,10 +84,7 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
         self.snapchatField.delegate = self
 
         // Next Button
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(UIColor.systemGreen, for: .normal)
-        nextButton.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        nextButton.titleLabel!.textAlignment = .right
+        nextButton.setTitle("Sign Up", for: .normal)
     }
     
     func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {

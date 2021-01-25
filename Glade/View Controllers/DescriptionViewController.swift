@@ -14,7 +14,8 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var descriptionPromptLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var nextButton: UIButton!
+    var placeholderLabel: UILabel!
+    @IBOutlet weak var nextButton: LoginSequenceButton!
     
 //    var currentUser = User(displayName: "", email: "", href: "", id: "", images: [Image(height: "", url: "", width: "")], type: "", uri: "")
     
@@ -44,24 +45,36 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         
         // Vertical Stack
         verticalStack.spacing = 20
+        verticalStack.alignment = .center
+        verticalStack.distribution = .fill
         
         // Description Prompt
-        descriptionPromptLabel.text = "Describe your music taste..."
+        descriptionPromptLabel.text = "Tell us about you"
         //emailPromptLabel.textColor
         descriptionPromptLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         descriptionPromptLabel.textAlignment = .left
         descriptionPromptLabel.numberOfLines = 0
         
         // Text View
-        textView.layer.cornerRadius = 20
-        textView.backgroundColor = UIColor(red: 0/255, green: 200/255, blue: 0/255, alpha: 0.05)
+        textView.delegate = self
+        textView.layer.borderWidth = 2
+        textView.layer.borderColor = UIColor.black.cgColor
+        textView.layer.backgroundColor = UIColor.clear.cgColor
         textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
+        // Placeholder Text
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Add a bio..."
+        placeholderLabel.font = UIFont.systemFont(ofSize: 14)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.sizeToFit()
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 25, y: 20)
+        placeholderLabel.isHidden = !textView.text.isEmpty
         
         // Next Button
         nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(UIColor.systemGreen, for: .normal)
-        nextButton.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        nextButton.titleLabel!.textAlignment = .right
+        nextButton.setActive()
     }
     
     func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
@@ -72,20 +85,18 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         backgroundView.layer.addSublayer(gradientLayer)
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         let username = UserDefaults.standard.string(forKey: "username")
         DataStorage.updateUserFields(username: username!,
-                                     fields: [description: textView.text!]) { (result) in
+                                     fields: ["description": textView.text!]) { (result) in
             return
         }
         performSegue(withIdentifier: "toConnectSocials", sender: self)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toConnectSocials" {
-//            let socialsVC: SocialsViewController = segue.destination as! SocialsViewController
-//        }
-//    }
     
     @IBAction func tapGestureRecognizer(_ sender: Any) {
         textView.resignFirstResponder()

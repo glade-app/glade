@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,36 +16,53 @@
                 <rect key="frame" x="0.0" y="0.0" width="541" height="457"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-Na-4QO">
-                        <rect key="frame" x="0.0" y="0.0" width="541" height="343"/>
-                    </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NT-LV-WCv">
-                        <rect key="frame" x="24" y="363" width="493" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lB6-fM-xPt">
+                        <rect key="frame" x="0.0" y="0.0" width="541" height="457"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-Na-4QO">
+                                <rect key="frame" x="0.0" y="0.0" width="541" height="377"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NT-LV-WCv">
+                                <rect key="frame" x="198.5" y="397" width="144.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gZQ-Ae-Pdw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="gZQ-Ae-Pdw"/>
+                            <constraint firstItem="eVE-Na-4QO" firstAttribute="leading" secondItem="lB6-fM-xPt" secondAttribute="leading" id="1tR-YV-43f"/>
+                            <constraint firstItem="1NT-LV-WCv" firstAttribute="centerX" secondItem="lB6-fM-xPt" secondAttribute="centerX" id="9VK-4L-hPA"/>
+                            <constraint firstAttribute="bottom" secondItem="1NT-LV-WCv" secondAttribute="bottom" constant="20" id="Mcm-xu-SAZ"/>
+                            <constraint firstItem="1NT-LV-WCv" firstAttribute="top" secondItem="eVE-Na-4QO" secondAttribute="bottom" constant="20" id="XYZ-Xy-fw9"/>
+                            <constraint firstAttribute="trailing" secondItem="eVE-Na-4QO" secondAttribute="trailing" id="eOb-Pg-DUk"/>
+                            <constraint firstItem="eVE-Na-4QO" firstAttribute="top" secondItem="lB6-fM-xPt" secondAttribute="top" id="z6P-jO-EKT"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="1NT-LV-WCv" secondAttribute="trailing" constant="24" id="3Uz-bH-F3g"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="1NT-LV-WCv" secondAttribute="bottom" constant="20" id="7IH-cv-jP9"/>
-                <constraint firstItem="eVE-Na-4QO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MgX-Yh-loO"/>
-                <constraint firstAttribute="trailing" secondItem="eVE-Na-4QO" secondAttribute="trailing" id="Sun-om-EWE"/>
-                <constraint firstItem="eVE-Na-4QO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="T79-44-Bfm"/>
-                <constraint firstItem="1NT-LV-WCv" firstAttribute="top" secondItem="eVE-Na-4QO" secondAttribute="bottom" constant="20" id="nnQ-jC-Qxq"/>
-                <constraint firstItem="1NT-LV-WCv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="wEe-5l-kSS"/>
+                <constraint firstItem="lB6-fM-xPt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kLt-Wb-n4u"/>
+                <constraint firstItem="lB6-fM-xPt" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="s9U-Ao-ho7"/>
+                <constraint firstItem="lB6-fM-xPt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uMg-0u-EZL"/>
+                <constraint firstAttribute="trailing" secondItem="lB6-fM-xPt" secondAttribute="trailing" id="zkZ-Ph-NK0"/>
             </constraints>
             <size key="customSize" width="541" height="457"/>
             <connections>
+                <outlet property="containerView" destination="lB6-fM-xPt" id="1RA-YV-2mX"/>
                 <outlet property="imageView" destination="eVE-Na-4QO" id="kCo-NC-AbW"/>
                 <outlet property="schoolLabel" destination="1NT-LV-WCv" id="pDa-1f-8BV"/>
             </connections>
             <point key="canvasLocation" x="134.05797101449275" y="-25.78125"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

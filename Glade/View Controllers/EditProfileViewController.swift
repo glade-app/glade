@@ -7,10 +7,11 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var user: User?
     var profileVC: ProfileViewController?
+    var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -32,6 +33,10 @@ class EditProfileViewController: UIViewController {
     func setup() {
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.width / 2
         self.profilePicture.layer.masksToBounds = true
+        self.profilePicture.isUserInteractionEnabled = true
+        let profileTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profilePictureTapped(tapGestureRecognizer:)))
+        self.profilePicture.addGestureRecognizer(profileTapGestureRecognizer)
+        
         self.facebookImage.image = UIImage(named: "facebook")
         self.instagramImage.image = UIImage(named: "instagram")
         self.snapchatImage.image = UIImage(named: "snapchat")
@@ -55,6 +60,69 @@ class EditProfileViewController: UIViewController {
         return true
     }
     
+    @objc func profilePictureTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        print("tapped profile")
+        let alert = UIAlertController(title: "Choose Profile Picture", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Choose from Photo Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.cameraFlashMode = .off
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            self.profilePicture.image = image
+            DataStorage.storeUserImage(image: image) { (url) in
+                if (url != nil) {
+                    self.user!.images![0].url = url!.absoluteString
+                }
+                picker.dismiss(animated: true, completion: nil)
+            }
+        }
+        else {
+            picker.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
     @IBAction func tapGestureRecognizer(_ sender: Any) {
         self.nameTextField.resignFirstResponder()
         self.descriptionTextView.resignFirstResponder()
@@ -75,11 +143,9 @@ class EditProfileViewController: UIViewController {
         self.user!.socials!["instagram"] = self.instagramTextField.text
         self.profileVC!.user = self.user!
         
-        DataStorage.updateUserFields(username: self.user!.id!,
-                                     fields: ["display_name": self.user!.displayName!,
-                                              "description": self.user!.description!,
-                                              "socials": self.user!.socials!]) { (result) in
-            print("done")
+        DataStorage.updateUser(user: self.user!) { (result) in
+            print("Finished Editing")
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

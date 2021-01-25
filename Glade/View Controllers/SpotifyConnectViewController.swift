@@ -12,12 +12,10 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var spotifyImage: UIImageView!
-    @IBOutlet var connectButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet var connectButton: LoginSequenceButton!
         
     var configuration = SPTConfiguration(clientID: Constants.clientID, redirectURL: Constants.redirectURI)
-    var done: Bool = false
+    var didConnect: Bool = false
     
     lazy var sessionManager: SPTSessionManager = {
         if let tokenSwapURL = Constants.tokenSwapURL,
@@ -32,6 +30,9 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self)
+        SceneDelegate.spotifyConnectVC = self // Tells SceneDelegate to return to this view controller after Spotify initiates a session
+
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
@@ -56,19 +57,8 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
 
         
         // Connect Button
-        connectButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 32)
-        connectButton.setTitle("Connect", for: .normal)
-        connectButton.setTitleColor(UIColor.black, for: .normal)
-        
-        // Error Label
-        errorLabel.text = " "
-        errorLabel.textColor = .systemRed
-        
-        // Next Button
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(UIColor.systemGreen, for: .normal)
-        nextButton.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        nextButton.titleLabel!.textAlignment = .center
+        connectButton.setTitle("Connect to Spotify", for: .normal)
+        connectButton.setActive()
     }
 
     func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
@@ -81,7 +71,7 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
         print("Successfully created Spotify session:", session)
-        
+
         // Request account info
         print("\nAccount Info Request...")
         let spotifyAccessToken = session.accessToken
@@ -97,6 +87,7 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
                 // Store artists and songs data to Firestore
                 let group = DispatchGroup()
                 let queue = DispatchQueue(label: Bundle.main.bundleIdentifier! + ".datastorage.queue", attributes: .concurrent)
+                
                 // Request user's top artists from Spotify and save to Firebase
                 group.enter()
                 queue.async {
@@ -120,6 +111,10 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
                 }
         
                 group.notify(queue: .main) {
+                    DispatchQueue.main.async {
+                        self.didConnect = false // If user returns to this view controller, they can choose to connect again
+                        self.performSegue(withIdentifier: "toDescription", sender: self)
+                    }
                     print("Finished storing data to Firestore")
                 }
             }
@@ -135,24 +130,17 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     }
     
     @IBAction func connectButtonTapped(_ sender: Any) {
+        if didConnect {
+            return
+        }
+        didConnect = true
         let scopes: SPTScope = [.userReadEmail, .userTopRead]
-
         if #available(iOS 11, *) {
             // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
             sessionManager.initiateSession(with: scopes, options: .default)
         } else {
             // Use this on iOS versions < 11 to use SFSafariViewController
             sessionManager.initiateSession(with: scopes, options: .clientOnly, presenting: self)
-        }
-    }
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        if UserDefaults.standard.string(forKey: "username") != nil {
-            errorLabel.text = " "
-            performSegue(withIdentifier: "toDescription", sender: self)
-        }
-        else {
-            errorLabel.text = "Please connect your Spotify account"
         }
     }
 }

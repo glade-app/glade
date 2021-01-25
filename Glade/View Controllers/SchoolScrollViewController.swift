@@ -12,13 +12,15 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
 
     let images = ["berkeley2", "stanford", "harvard"]
     let imageNames = ["UC Berkeley", "Stanford", "Harvard"]
-    var schoolSelected = ""
+    var schoolSelected: String?
+    var lastCellIndexSelected: IndexPath?
     
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
+    @IBOutlet weak var nextButton: LoginSequenceButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,11 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
         
         // Collection View
         schoolCollectionView.backgroundColor = .clear
+        schoolCollectionView.delaysContentTouches = false
+        
+        // Next Button
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.setInactive()
     }
     
     func registerNib() {
@@ -91,11 +98,23 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(imageNames[indexPath.item])
         schoolSelected = imageNames[indexPath.item]
-        
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(schoolSelected, forKey: "school")
-        
-        performSegue(withIdentifier: "toSpotifyConnect", sender: self)
+                
+        if lastCellIndexSelected != nil {
+            collectionView.deselectItem(at: lastCellIndexSelected!, animated: true)
+        }
+        lastCellIndexSelected = indexPath
+        self.nextButton.setActive()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if collectionView.cellForItem(at: indexPath)?.isSelected ?? false {
+            lastCellIndexSelected = nil
+            schoolSelected = nil
+            collectionView.deselectItem(at: indexPath, animated: true)
+            self.nextButton.setInactive()
+            return false
+        }
+        return true
     }
     
     // Sets cell size
@@ -117,6 +136,14 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     // Changes the left and right end points of the collection view (where the cells start and end)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 0, left: collectionView.bounds.size.width * 1/8, bottom: 0, right: collectionView.bounds.size.width * 1/8)
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        if schoolSelected != nil {
+            print("School Selected:", schoolSelected!)
+            UserDefaults.standard.set(schoolSelected, forKey: "school")
+            performSegue(withIdentifier: "toSpotifyConnect", sender: self)
+        }
     }
 }
 
