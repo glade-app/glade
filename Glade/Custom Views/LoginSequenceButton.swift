@@ -16,11 +16,13 @@ public class LoginSequenceButton: UIButton {
     
     func setup() {
         self.backgroundColor = greenColor
-        self.titleLabel!.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        self.titleLabel!.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         self.titleLabel!.textAlignment = .center
         self.setTitleColor(.black, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.layer.cornerRadius = self.bounds.size.height / 2
+        self.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.layer.cornerRadius = self.bounds.size.height / 4
+        
     }
     
     func setInactive() {

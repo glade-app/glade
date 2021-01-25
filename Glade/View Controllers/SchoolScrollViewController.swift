@@ -17,7 +17,6 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     
     
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     @IBOutlet weak var nextButton: LoginSequenceButton!
@@ -40,13 +39,6 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     }
     
     func setupItems() {
-        // Glade
-        gladeNameLabel.text = "Glade"
-        //gladeNameLabel.textColor
-        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
-        gladeNameLabel.textAlignment = .center
-        gladeNameLabel.numberOfLines = 0
-        
         // Choose your school prompt
         chooseLabel.text = "Choose your school:"
         //chooseLabel.textColor

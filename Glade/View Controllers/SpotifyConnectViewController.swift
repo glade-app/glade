@@ -10,7 +10,6 @@ import UIKit
 class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var spotifyImage: UIImageView!
     @IBOutlet var connectButton: LoginSequenceButton!
         
@@ -48,14 +47,6 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     }
     
     func setupItems() {
-        // Glade
-        gladeNameLabel.text = "Glade"
-        //gladeNameLabel.textColor
-        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
-        gladeNameLabel.textAlignment = .center
-        gladeNameLabel.numberOfLines = 0
-
-        
         // Connect Button
         connectButton.setTitle("Connect to Spotify", for: .normal)
         connectButton.setActive()

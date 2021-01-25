@@ -9,7 +9,6 @@ import UIKit
 
 class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var socialsPromptLabel: UILabel!
     @IBOutlet weak var facebookStack: UIStackView!
@@ -47,13 +46,6 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
     }
     
     func setupItems() {
-        // Glade
-        gladeNameLabel.text = "Glade"
-        //gladeNameLabel.textColor
-        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
-        gladeNameLabel.textAlignment = .center
-        gladeNameLabel.numberOfLines = 0
-        
         facebookImage.image = UIImage(named: "facebook")
         instagramImage.image = UIImage(named: "instagram")
         snapchatImage.image = UIImage(named: "snapchat")

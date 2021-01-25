@@ -82,9 +82,8 @@ class DataStorage {
         }
     }
     
-    static func ifUserExists(completion: @escaping (_ result: Bool) -> ()) {
+    static func doesUserExist(username: String?, completion: @escaping (_ result: Bool) -> ()) {
         let db = Firestore.firestore()
-        let username = UserDefaults.standard.string(forKey: "username")
         let userReference = db.collection("users").document(username!)
                 
         userReference.getDocument { (document, error) in

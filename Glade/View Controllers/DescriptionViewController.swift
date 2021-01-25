@@ -10,7 +10,6 @@ import UIKit
 class DescriptionViewController: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var gladeNameLabel: UILabel!
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var descriptionPromptLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -36,13 +35,6 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
     }
     
     func setupItems() {
-        // Glade
-        gladeNameLabel.text = "Glade"
-        //gladeNameLabel.textColor
-        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
-        gladeNameLabel.textAlignment = .center
-        gladeNameLabel.numberOfLines = 0
-        
         // Vertical Stack
         verticalStack.spacing = 20
         verticalStack.alignment = .center
@@ -57,10 +49,11 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         
         // Text View
         textView.delegate = self
+        textView.layer.cornerRadius = 5
         textView.layer.borderWidth = 2
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.backgroundColor = UIColor.clear.cgColor
-        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        textView.textContainerInset = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
         
         // Placeholder Text
         placeholderLabel = UILabel()
@@ -69,7 +62,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.sizeToFit()
         textView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 25, y: 20)
+        placeholderLabel.frame.origin = CGPoint(x: 15, y: 15)
         placeholderLabel.isHidden = !textView.text.isEmpty
         
         // Next Button
@@ -87,6 +80,8 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
     
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
+        
+        // Check lines/characters
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
