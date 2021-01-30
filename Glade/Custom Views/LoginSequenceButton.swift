@@ -9,6 +9,8 @@ import Foundation
 public class LoginSequenceButton: UIButton {
     let greenColor: UIColor = UIColor(red: 0/255, green: 255/255, blue: 178/255, alpha: 1)
     
+    public var isActive: Bool = true
+    
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.setup()
@@ -16,7 +18,7 @@ public class LoginSequenceButton: UIButton {
     
     func setup() {
         self.backgroundColor = greenColor
-        self.titleLabel!.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        self.titleLabel!.font = Fonts.getFont(type: .bold, size: 18)
         self.titleLabel!.textAlignment = .center
         self.setTitleColor(.black, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -26,10 +28,12 @@ public class LoginSequenceButton: UIButton {
     }
     
     func setInactive() {
+        isActive = false
         self.backgroundColor = .gray
     }
     
     func setActive() {
+        isActive = true
         self.backgroundColor = greenColor
     }
 }

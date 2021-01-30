@@ -83,7 +83,7 @@ class StartViewController: UIViewController {
         // Glade
         gladeNameLabel.text = "Glade"
         gladeNameLabel.textColor = .white
-        gladeNameLabel.font = UIFont.boldSystemFont(ofSize: 72)
+        gladeNameLabel.font = Fonts.getFont(type: .bold, size: 72)
         gladeNameLabel.textAlignment = .center
         gladeNameLabel.numberOfLines = 0
         

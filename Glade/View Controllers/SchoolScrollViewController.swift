@@ -26,7 +26,7 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
         self.registerNib()
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
+        self.backgroundView.backgroundColor = UIColor(red: 232/255, green: 241/255, blue: 255/255, alpha: 1.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,9 +40,9 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     
     func setupItems() {
         // Choose your school prompt
-        chooseLabel.text = "Choose your school:"
+        chooseLabel.text = "What school do you attend?"
         //chooseLabel.textColor
-        chooseLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        chooseLabel.font = Fonts.getFont(type: .bold, size: 32)
         chooseLabel.textAlignment = .left
         chooseLabel.numberOfLines = 0
         
@@ -58,14 +58,6 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     func registerNib() {
         let nib = UINib(nibName: SchoolCollectionViewCell.nibName, bundle: nil)
         schoolCollectionView?.register(nib, forCellWithReuseIdentifier: SchoolCollectionViewCell.reuseIdentifier)
-    }
-    
-    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = backgroundView.bounds
-        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
-        gradientLayer.shouldRasterize = true
-        backgroundView.layer.addSublayer(gradientLayer)
     }
     
     // Returns number of rows (1)
@@ -131,7 +123,7 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if schoolSelected != nil {
+        if schoolSelected != nil && nextButton.isActive {
             print("School Selected:", schoolSelected!)
             UserDefaults.standard.set(schoolSelected, forKey: "school")
             performSegue(withIdentifier: "toSpotifyConnect", sender: self)

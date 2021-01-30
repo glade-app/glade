@@ -28,8 +28,7 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
         super.viewDidLoad()
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
-    }
+        self.backgroundView.backgroundColor = UIColor(red: 232/255, green: 241/255, blue: 255/255, alpha: 1.0)    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -77,14 +76,6 @@ class SocialsViewController: UIViewController, UITextFieldDelegate, UIGestureRec
 
         // Next Button
         nextButton.setTitle("Sign Up", for: .normal)
-    }
-    
-    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = backgroundView.bounds
-        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
-        gradientLayer.shouldRasterize = true
-        backgroundView.layer.addSublayer(gradientLayer)
     }
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

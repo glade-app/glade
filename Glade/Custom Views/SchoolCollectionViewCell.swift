@@ -23,6 +23,7 @@ class SchoolCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.schoolLabel.font = Fonts.getFont(type: .medium, size: 24)
         self.imageView.layer.cornerRadius = 10
         self.imageView.layer.borderColor = UIColor(red: 0/255, green: 255/255, blue: 178/255, alpha: 1).cgColor
         

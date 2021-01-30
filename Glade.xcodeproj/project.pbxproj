@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		37E9B080BDCD2D571C30B57F /* Pods_Glade_GladeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73872B2E0FDB41BF50DAC8C /* Pods_Glade_GladeUITests.framework */; };
 		939D607D9168A3BC69FE4566 /* Pods_GladeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BA32312CAC47A63B5CD0B9 /* Pods_GladeTests.framework */; };
+		960C8EAA25C4BBF1004921CB /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C8EA925C4BBF1004921CB /* EmailValidation.swift */; };
+		960C8EAF25C4C992004921CB /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C8EAE25C4C992004921CB /* Fonts.swift */; };
+		960C8EB425C4E06E004921CB /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C8EB325C4E06E004921CB /* UserInfoViewController.swift */; };
 		96282211256A6F4B006A9558 /* SocialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */; };
 		96282216256B2679006A9558 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96282215256B2679006A9558 /* Social.swift */; };
 		9635EA812558BE47009C3950 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635EA802558BE47009C3950 /* Token.swift */; };
@@ -74,6 +77,9 @@
 		5137C6330177CD0E97897954 /* Pods_Glade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Glade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7790D7818CF769ACC6D050 /* Pods-GladeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GladeTests.release.xcconfig"; path = "Target Support Files/Pods-GladeTests/Pods-GladeTests.release.xcconfig"; sourceTree = "<group>"; };
 		739A2C23C7AD30E57669FACB /* Pods-Glade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glade.release.xcconfig"; path = "Target Support Files/Pods-Glade/Pods-Glade.release.xcconfig"; sourceTree = "<group>"; };
+		960C8EA925C4BBF1004921CB /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
+		960C8EAE25C4C992004921CB /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		960C8EB325C4E06E004921CB /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		96282210256A6F4B006A9558 /* SocialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCollectionViewCell.swift; sourceTree = "<group>"; };
 		96282215256B2679006A9558 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		9635EA802558BE47009C3950 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 				9639207925632CD700D5FE7E /* CellBuilder.swift */,
 				9639207E25632CED00D5FE7E /* LayoutBuilder.swift */,
 				96CE3FDA2569C04200019DDC /* Spotify.swift */,
+				960C8EA925C4BBF1004921CB /* EmailValidation.swift */,
+				960C8EAE25C4C992004921CB /* Fonts.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 				9639207025632BEE00D5FE7E /* HomeViewController.swift */,
 				967A8F52256913B200A5CADC /* ProfileViewController.swift */,
 				9668CA432593E0BC002F4C10 /* EditProfileViewController.swift */,
+				960C8EB325C4E06E004921CB /* UserInfoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -561,8 +570,11 @@
 				96CA7FD8253162D700C221DE /* AppDelegate.swift in Sources */,
 				9639207F25632CED00D5FE7E /* LayoutBuilder.swift in Sources */,
 				9639208425632DD400D5FE7E /* SongCollectionViewCell.swift in Sources */,
+				960C8EB425C4E06E004921CB /* UserInfoViewController.swift in Sources */,
 				967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */,
 				969BD35C253BA20800205CC4 /* SocialsViewController.swift in Sources */,
+				960C8EAF25C4C992004921CB /* Fonts.swift in Sources */,
+				960C8EAA25C4BBF1004921CB /* EmailValidation.swift in Sources */,
 				9639207A25632CD700D5FE7E /* CellBuilder.swift in Sources */,
 				963DCAFB2535560500224983 /* Constants.swift in Sources */,
 				96DB9C2A255C867C00542872 /* Artist.swift in Sources */,

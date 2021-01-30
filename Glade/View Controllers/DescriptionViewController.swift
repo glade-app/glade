@@ -15,14 +15,16 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
     @IBOutlet weak var textView: UITextView!
     var placeholderLabel: UILabel!
     @IBOutlet weak var nextButton: LoginSequenceButton!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
+    let maxNumWords: Int = 200
 //    var currentUser = User(displayName: "", email: "", href: "", id: "", images: [Image(height: "", url: "", width: "")], type: "", uri: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
+        self.backgroundView.backgroundColor = UIColor(red: 232/255, green: 241/255, blue: 255/255, alpha: 1.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,9 +43,9 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         verticalStack.distribution = .fill
         
         // Description Prompt
-        descriptionPromptLabel.text = "Tell us about you"
+        descriptionPromptLabel.text = "Tell us about you..."
         //emailPromptLabel.textColor
-        descriptionPromptLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
+        descriptionPromptLabel.font = Fonts.getFont(type: .medium, size: 32)
         descriptionPromptLabel.textAlignment = .left
         descriptionPromptLabel.numberOfLines = 0
         
@@ -68,14 +70,42 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         // Next Button
         nextButton.setTitle("Next", for: .normal)
         nextButton.setActive()
+        
+        // Error Message
+        errorMessageLabel.text = ""
+        errorMessageLabel.font = Fonts.getFont(type: .regular, size: 14)
+        errorMessageLabel.textColor = UIColor.red
+        errorMessageLabel.isHidden = true
+        errorMessageLabel.numberOfLines = 0
     }
     
-    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = backgroundView.bounds
-        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
-        gradientLayer.shouldRasterize = true
-        backgroundView.layer.addSublayer(gradientLayer)
+    func validateDescription() -> String {
+        let description: String = textView.text!
+        let numCharacters: Int = description.count
+        let numOfNewLines: Int = description.components(separatedBy: ["\n"]).count
+        
+        // Checks if description is 1) <= 200 characters and 2) has <= 6 lines
+        if numCharacters - numOfNewLines > maxNumWords || numOfNewLines > 6 {
+            return "Description must contain at most \(maxNumWords) characters and 6 lines"
+        }
+        return ""
+    }
+//
+//    func countOccurences(s: String, substr: String) -> Int {
+//        var count = 0
+//        for i in 0...(s.count - substr.count) {
+//            for j in 0...substr.count {
+//                if s.index(s.startIndex, offsetBy: i + j) != substr.index(substr.startIndex, offsetBy: j) {
+//                    continue
+//                }
+//            }
+//            count += 1
+//        }
+//        return count
+//    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        nextButton.setInactive()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -84,13 +114,29 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIGesture
         // Check lines/characters
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let errorMessage = validateDescription()
+        if errorMessage != "" {
+            errorMessageLabel.text = errorMessage
+            errorMessageLabel.isHidden = false
+            nextButton.setInactive()
+        }
+        else {
+            errorMessageLabel.text = ""
+            errorMessageLabel.isHidden = true
+            nextButton.setActive()
+        }
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
+        if nextButton.isActive == false {
+            return
+        }
         let username = UserDefaults.standard.string(forKey: "username")
         DataStorage.updateUserFields(username: username!,
                                      fields: ["description": textView.text!]) { (result) in
-            return
+            self.performSegue(withIdentifier: "toUserInfo", sender: self)
         }
-        performSegue(withIdentifier: "toConnectSocials", sender: self)
     }
     
     @IBAction func tapGestureRecognizer(_ sender: Any) {

@@ -9,6 +9,7 @@ import UIKit
 
 class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var connectLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var spotifyImage: UIImageView!
     @IBOutlet var connectButton: LoginSequenceButton!
@@ -34,7 +35,7 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
 
         self.setupItems()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.setGradientBackground(bottomColor: UIColor(red: 0/255, green: 161/255, blue: 255/255, alpha: 0.3), topColor: UIColor(red: 0/255, green: 255/255, blue: 143/255, alpha: 0.3))
+        self.backgroundView.backgroundColor = UIColor(red: 232/255, green: 241/255, blue: 255/255, alpha: 1.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,17 +48,12 @@ class SpotifyConnectViewController: UIViewController, SPTSessionManagerDelegate,
     }
     
     func setupItems() {
+        // Connect Label
+        connectLabel.font = Fonts.getFont(type: .medium, size: 32)
+        
         // Connect Button
         connectButton.setTitle("Connect to Spotify", for: .normal)
         connectButton.setActive()
-    }
-
-    func setGradientBackground(bottomColor: UIColor, topColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = backgroundView.bounds
-        gradientLayer.colors = [bottomColor.cgColor, topColor.cgColor]
-        gradientLayer.shouldRasterize = true
-        backgroundView.layer.addSublayer(gradientLayer)
     }
     
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {

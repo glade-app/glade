@@ -23,6 +23,8 @@ public struct User: Codable {
     var school: String?
     var description: String?
     var socials: [String: String]?
+    var major: String?
+    var year: String?
 
 
     
@@ -38,5 +40,7 @@ public struct User: Codable {
         case school
         case description
         case socials
+        case major
+        case year
     }
 }
