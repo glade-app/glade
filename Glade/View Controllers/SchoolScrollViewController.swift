@@ -42,7 +42,7 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
         // Choose your school prompt
         chooseLabel.text = "What school do you attend?"
         //chooseLabel.textColor
-        chooseLabel.font = Fonts.getFont(type: .bold, size: 32)
+        chooseLabel.font = Fonts.getFont(type: .medium, size: 32)
         chooseLabel.textAlignment = .left
         chooseLabel.numberOfLines = 0
         
@@ -126,7 +126,7 @@ class SchoolScrollViewController: UIViewController, UIGestureRecognizerDelegate,
         if schoolSelected != nil && nextButton.isActive {
             print("School Selected:", schoolSelected!)
             UserDefaults.standard.set(schoolSelected, forKey: "school")
-            performSegue(withIdentifier: "toSpotifyConnect", sender: self)
+            performSegue(withIdentifier: "schoolToSchoolEmail", sender: self)
         }
     }
 }

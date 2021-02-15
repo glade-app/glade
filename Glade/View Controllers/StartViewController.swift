@@ -56,7 +56,7 @@ class StartViewController: UIViewController {
         }
         // If user isn't signed up: Send them to the sign up sequence
         else {
-            performSegue(withIdentifier: "toSchools", sender: self)
+            performSegue(withIdentifier: "startToWelcome", sender: self)
         }
     }
     

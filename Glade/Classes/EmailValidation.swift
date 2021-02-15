@@ -8,11 +8,11 @@
 import Foundation
 
 public class EmailValidation {
-    var schoolEmailEndings = ["UC Berkeley": "@berkeley.edu"]
+    static var schoolEmailEndings: [String: String] = ["UC Berkeley": "berkeley.edu"]
     
-    func validateEmail(school: String, email: String) -> Bool {
+    static func validateEmail(school: String, email: String) -> Bool {
         let range = NSRange(location: 0, length: email.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "([A-Za-z0-9.(),:;<>@!#$%&'*+-/=?^_`{|}~])+@\(schoolEmailEndings[school])")
+        let regex = try! NSRegularExpression(pattern: "([A-Za-z0-9.(),:;<>@!#$%&'*+-/=?^_`{|}~])+@\(schoolEmailEndings[school]!)")
         return regex.firstMatch(in: email, options: [], range: range) != nil
     }
 }

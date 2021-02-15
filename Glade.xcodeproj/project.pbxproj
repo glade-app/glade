@@ -31,6 +31,9 @@
 		967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A8F52256913B200A5CADC /* ProfileViewController.swift */; };
 		967AA0AC256E334000386D67 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967AA0AB256E334000386D67 /* SpotifyiOS.framework */; };
 		969995B8255F5BA600F18474 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969995B7255F5BA600F18474 /* DataStorage.swift */; };
+		969A4BCC25D9EE9000E6F35D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A4BCB25D9EE9000E6F35D /* WelcomeViewController.swift */; };
+		969A4BD125D9F11200E6F35D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A4BD025D9F11200E6F35D /* LoginViewController.swift */; };
+		969A4BD625DA02FE00E6F35D /* SchoolEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A4BD525DA02FE00E6F35D /* SchoolEmailViewController.swift */; };
 		969BD357253B91BE00205CC4 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD356253B91BE00205CC4 /* DescriptionViewController.swift */; };
 		969BD35C253BA20800205CC4 /* SocialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD35B253BA20800205CC4 /* SocialsViewController.swift */; };
 		96B0355725688D5600F33FAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96B0355625688D5600F33FAB /* GoogleService-Info.plist */; };
@@ -100,6 +103,9 @@
 		967AA0AB256E334000386D67 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		968347AC2535493400B2B2E7 /* Glade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glade-Bridging-Header.h"; sourceTree = "<group>"; };
 		969995B7255F5BA600F18474 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		969A4BCB25D9EE9000E6F35D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		969A4BD025D9F11200E6F35D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		969A4BD525DA02FE00E6F35D /* SchoolEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolEmailViewController.swift; sourceTree = "<group>"; };
 		969BD356253B91BE00205CC4 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		969BD35B253BA20800205CC4 /* SocialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsViewController.swift; sourceTree = "<group>"; };
 		96B0355625688D5600F33FAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -225,6 +231,9 @@
 				967A8F52256913B200A5CADC /* ProfileViewController.swift */,
 				9668CA432593E0BC002F4C10 /* EditProfileViewController.swift */,
 				960C8EB325C4E06E004921CB /* UserInfoViewController.swift */,
+				969A4BCB25D9EE9000E6F35D /* WelcomeViewController.swift */,
+				969A4BD025D9F11200E6F35D /* LoginViewController.swift */,
+				969A4BD525DA02FE00E6F35D /* SchoolEmailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -553,10 +562,12 @@
 				96CA7FDC253162D700C221DE /* StartViewController.swift in Sources */,
 				963920B225635AAE00D5FE7E /* HomeSchoolCollectionViewCell.swift in Sources */,
 				96CA80E32533881500C221DE /* SchoolCollectionViewCell.swift in Sources */,
+				969A4BD625DA02FE00E6F35D /* SchoolEmailViewController.swift in Sources */,
 				964F09B8256C666800A51D6B /* UserCollectionViewCell.swift in Sources */,
 				96C719382559000F00B30BAE /* Account.swift in Sources */,
 				96CE3FDB2569C04200019DDC /* Spotify.swift in Sources */,
 				9668CA442593E0BC002F4C10 /* EditProfileViewController.swift in Sources */,
+				969A4BCC25D9EE9000E6F35D /* WelcomeViewController.swift in Sources */,
 				96462D6D256FB19400FBD90A /* ArtistsSongsSectionHeader.swift in Sources */,
 				96282211256A6F4B006A9558 /* SocialCollectionViewCell.swift in Sources */,
 				9635EA812558BE47009C3950 /* Token.swift in Sources */,
@@ -571,6 +582,7 @@
 				9639207F25632CED00D5FE7E /* LayoutBuilder.swift in Sources */,
 				9639208425632DD400D5FE7E /* SongCollectionViewCell.swift in Sources */,
 				960C8EB425C4E06E004921CB /* UserInfoViewController.swift in Sources */,
+				969A4BD125D9F11200E6F35D /* LoginViewController.swift in Sources */,
 				967A8F53256913B200A5CADC /* ProfileViewController.swift in Sources */,
 				969BD35C253BA20800205CC4 /* SocialsViewController.swift in Sources */,
 				960C8EAF25C4C992004921CB /* Fonts.swift in Sources */,
